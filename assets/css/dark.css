@@ -1,0 +1,79 @@
+/* 
+ * Comic Book Store - Dark Mode Styles
+ * Version: 1.0.0
+ */
+
+body.dark-mode {
+    --color-background: #020617;
+    --color-surface: #0f172a;
+    /* Slightly lighter than bg for contrast, or use glass */
+    --color-text-primary: #F8FAFC;
+    --color-text-secondary: #CBD5E1;
+    --color-border: #1e293b;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+}
+
+/* Specific overrides for Dark Mode */
+body.dark-mode .comic-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .btn-outline {
+    border-color: var(--color-text-primary);
+    color: var(--color-text-primary);
+}
+
+body.dark-mode .btn-outline:hover {
+    background-color: var(--color-text-primary);
+    color: var(--color-background);
+}
+
+body.dark-mode .glass-panel {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .form-control {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--color-text-primary);
+}
+
+body.dark-mode .form-control:focus {
+    border-color: var(--color-secondary);
+}
+
+/* Footer brand name white in dark mode */
+body.dark-mode .footer-logo span {
+    color: #FFFFFF !important;
+}
+
+body.dark-mode .footer-logo span span {
+    color: #FFFFFF !important;
+}
+
+/* Theme toggle button in dark mode */
+body.dark-mode #theme-toggle {
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode #theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+body.dark-mode #theme-icon {
+    color: var(--color-text-primary);
+}
+
+body.dark-mode #theme-icon svg {
+    stroke: var(--color-text-primary);
+}
+
+/* Ensure images have slight opacity shift if overly bright? Optional. */

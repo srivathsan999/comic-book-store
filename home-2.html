@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComicVerse - Home Variant</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <!-- Dependencies -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+
+<body>
+
+    <!-- Reuse Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                    <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
+                    <path d="M12 10C12 9.44772 12.4477 9 13 9H27C27.5523 9 28 9.44772 28 10V30C28 30.5523 27.5523 31 27 31H13C12.4477 31 12 30.5523 12 30V10Z" fill="white" opacity="0.9"/>
+                    <path d="M15 13H25M15 17H25M15 21H22" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="26" cy="23" r="2" fill="var(--color-primary)"/>
+                    <path d="M20 28L15 31V28H20Z" fill="var(--color-accent)"/>
+                </svg>
+                <span>COMIC<span>VERSE</span></span>
+            </a>
+
+            <div class="nav-links">
+                <div class="dropdown">
+                    <a href="index.html" class="nav-link active">Home <span style="font-size: 0.8em;">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-item">Home 1</a>
+                        <a href="home-2.html" class="dropdown-item active">Home 2 (Variant)</a>
+                    </div>
+                </div>
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="categories.html" class="nav-link">Categories</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+            </div>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-icon" aria-label="Toggle Dark Mode">
+                    <span id="theme-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                </button>
+                <a href="cart.html" class="btn-icon" aria-label="Shopping Cart" style="position: relative;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span id="cart-count" style="position: absolute; top: -8px; right: -8px; background: var(--color-primary); color: white; border-radius: 50%; width: 20px; height: 20px; display: none; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;">0</span>
+                </a>
+                <a href="login.html" class="btn btn-outline" style="font-size: 1rem; padding: 0.5rem 1rem; text-decoration: none;">Login</a>
+                <a href="signup.html" class="btn btn-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">Sign Up</a>
+                <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Toggle Menu"
+                    style="display: none;">&#9776;</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Variant: Split Screen -->
+    <header class="hero" style="min-height: 90vh; padding-top: 4rem;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <span class="text-secondary" style="font-weight: 700; text-transform: uppercase;">New Release</span>
+                    <h1 style="font-size: 4.5rem;">The Dark Knight Returns</h1>
+                    <p>Experience the legendary tale that redefined Batman. Available now in a special collector's
+                        edition.</p>
+                    <a href="shop.html" class="btn btn-primary">Buy Now - $29.99</a>
+                </div>
+                <div class="col-lg-6 fade-up">
+                    <div class="glass-panel"
+                        style="padding: 2rem; border-radius: var(--radius-lg); transform: rotate(2deg);">
+                        <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?q=80&w=800&auto=format&fit=crop"
+                            alt="Featured Comic"
+                            style="border-radius: var(--radius-md); width: 100%; box-shadow: var(--shadow-lg);">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section 1: Best Sellers - Horizontal Scroll Style -->
+    <section class="py-5" style="background: linear-gradient(135deg, var(--color-surface) 0%, var(--color-background) 50%, var(--color-surface) 100%);">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <span class="text-primary" style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.875rem; display: block; margin-bottom: 0.5rem;">Top Picks</span>
+                    <h2 style="font-size: 3rem; margin: 0;">Best Sellers</h2>
+                </div>
+                <a href="shop.html" class="btn btn-primary" style="font-size: 1rem; padding: 0.75rem 2rem;">Shop All &rarr;</a>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; overflow-x: auto; padding-bottom: 1rem;">
+                <article class="comic-card" style="min-width: 200px;">
+                    <div class="comic-image-wrapper">
+                        <a href="product-details.html">
+                            <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?q=80&w=400&auto=format&fit=crop"
+                                class="comic-image" alt="Batman">
+                        </a>
+                    </div>
+                    <div class="comic-content">
+                        <span class="comic-category">DC Comics</span>
+                        <h3 class="comic-title"><a href="product-details.html">Batman #1</a></h3>
+                        <div class="comic-price">$89.99</div>
+                    </div>
+                </article>
+                <article class="comic-card" style="min-width: 200px;">
+                    <div class="comic-image-wrapper">
+                        <a href="product-details.html">
+                            <img src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=400&auto=format&fit=crop"
+                                class="comic-image" alt="Spider-Man">
+                        </a>
+                    </div>
+                    <div class="comic-content">
+                        <span class="comic-category">Marvel</span>
+                        <h3 class="comic-title"><a href="product-details.html">Amazing Spider-Man #1</a></h3>
+                        <div class="comic-price">$125.00</div>
+                    </div>
+                </article>
+                <article class="comic-card" style="min-width: 200px;">
+                    <div class="comic-image-wrapper">
+                        <a href="product-details.html">
+                            <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?q=80&w=400&auto=format&fit=crop"
+                                class="comic-image" alt="Superman">
+                        </a>
+                    </div>
+                    <div class="comic-content">
+                        <span class="comic-category">DC Comics</span>
+                        <h3 class="comic-title"><a href="product-details.html">Action Comics #1</a></h3>
+                        <div class="comic-price">$250.00</div>
+                    </div>
+                </article>
+                <article class="comic-card" style="min-width: 200px;">
+                    <div class="comic-image-wrapper">
+                        <a href="product-details.html">
+                            <img src="https://images.unsplash.com/photo-1534809027769-b00d750a6bac?q=80&w=400&auto=format&fit=crop"
+                                class="comic-image" alt="Watchmen">
+                        </a>
+                    </div>
+                    <div class="comic-content">
+                        <span class="comic-category">Graphic Novel</span>
+                        <h3 class="comic-title"><a href="product-details.html">Watchmen</a></h3>
+                        <div class="comic-price">$22.00</div>
+                    </div>
+                </article>
+                <article class="comic-card" style="min-width: 200px;">
+                    <div class="comic-image-wrapper">
+                        <a href="product-details.html">
+                            <img src="https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?q=80&w=400&auto=format&fit=crop"
+                                class="comic-image" alt="Hellboy">
+                        </a>
+                    </div>
+                    <div class="comic-content">
+                        <span class="comic-category">Dark Horse</span>
+                        <h3 class="comic-title"><a href="product-details.html">Hellboy</a></h3>
+                        <div class="comic-price">$18.99</div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Weekly Deals with Discount Badges -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="text-primary" style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.875rem; display: block; margin-bottom: 0.5rem;">Limited Time</span>
+                <h2 style="font-size: 3rem; margin-bottom: 0.5rem;">Weekly Deals</h2>
+                <p style="color: var(--color-text-secondary); font-size: 1.125rem;">Don't miss out on these amazing discounts</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <article class="comic-card" style="position: relative; border: 2px solid var(--color-primary);">
+                    <div style="position: absolute; top: -15px; right: 15px; background: var(--color-primary); color: white; padding: 0.75rem 1rem; border-radius: 50%; font-weight: 700; font-size: 1rem; z-index: 10; box-shadow: var(--shadow-md);">-30%</div>
+                    <div class="comic-image-wrapper">
+                        <a href="product-details.html">
+                            <img src="https://images.unsplash.com/photo-1620336655055-088d06e36bf0?q=80&w=400&auto=format&fit=crop"
+                                class="comic-image" alt="Deal">
+                        </a>
+                    </div>
+                    <div class="comic-content">
+                        <span class="comic-category">Image Comics</span>
+                        <h3 class="comic-title"><a href="product-details.html">The Walking Dead #1</a></h3>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="text-decoration: line-through; color: var(--color-text-secondary); font-size: 0.875rem;">$42.99</span>
+                            <span class="comic-price" style="color: var(--color-primary); font-weight: 700;">$29.99</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="comic-card" style="position: relative; border: 2px solid var(--color-primary);">
+                    <div style="position: absolute; top: -15px; right: 15px; background: var(--color-primary); color: white; padding: 0.75rem 1rem; border-radius: 50%; font-weight: 700; font-size: 1rem; z-index: 10; box-shadow: var(--shadow-md);">-25%</div>
+                    <div class="comic-image-wrapper">
+                        <a href="product-details.html">
+                            <img src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=400&auto=format&fit=crop"
+                                class="comic-image" alt="Deal">
+                        </a>
+                    </div>
+                    <div class="comic-content">
+                        <span class="comic-category">Marvel</span>
+                        <h3 class="comic-title"><a href="product-details.html">X-Men #1</a></h3>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="text-decoration: line-through; color: var(--color-text-secondary); font-size: 0.875rem;">$20.00</span>
+                            <span class="comic-price" style="color: var(--color-primary); font-weight: 700;">$15.00</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="comic-card" style="position: relative; border: 2px solid var(--color-primary);">
+                    <div style="position: absolute; top: -15px; right: 15px; background: var(--color-primary); color: white; padding: 0.75rem 1rem; border-radius: 50%; font-weight: 700; font-size: 1rem; z-index: 10; box-shadow: var(--shadow-md);">-40%</div>
+                    <div class="comic-image-wrapper">
+                        <a href="product-details.html">
+                            <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?q=80&w=400&auto=format&fit=crop"
+                                class="comic-image" alt="Detective Comics">
+                        </a>
+                    </div>
+                    <div class="comic-content">
+                        <span class="comic-category">DC Comics</span>
+                        <h3 class="comic-title"><a href="product-details.html">Detective Comics #27</a></h3>
+                        <div style="display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="text-decoration: line-through; color: var(--color-text-secondary); font-size: 0.875rem;">$50.00</span>
+                            <span class="comic-price" style="color: var(--color-primary); font-weight: 700;">$30.00</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Featured Publishers - Card Grid -->
+    <section class="py-5" style="background-color: var(--color-surface);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 style="font-size: 3rem; margin-bottom: 0.5rem;">Featured Publishers</h2>
+                <p style="color: var(--color-text-secondary); font-size: 1.125rem;">Explore collections from the biggest names in comics</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <a href="shop.html" class="glass-panel" style="padding: 2rem; border-radius: var(--radius-lg); text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                   onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='var(--shadow-lg)';"
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #ED1D24 0%, #C8102E 100%); border-radius: 50%; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white;">M</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Marvel Comics</h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 1rem;">The House of Ideas - Home to Spider-Man, X-Men, and the Avengers</p>
+                    <span style="color: var(--color-primary); font-weight: 600;">Browse Collection &rarr;</span>
+                </a>
+                <a href="shop.html" class="glass-panel" style="padding: 2rem; border-radius: var(--radius-lg); text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                   onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='var(--shadow-lg)';"
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #0078D4 0%, #005BA1 100%); border-radius: 50%; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white;">DC</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">DC Comics</h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 1rem;">The World's Greatest Superheroes - Batman, Superman, Wonder Woman</p>
+                    <span style="color: var(--color-primary); font-weight: 600;">Browse Collection &rarr;</span>
+                </a>
+                <a href="shop.html" class="glass-panel" style="padding: 2rem; border-radius: var(--radius-lg); text-decoration: none; color: inherit; display: block; transition: transform 0.3s ease, box-shadow 0.3s ease;"
+                   onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='var(--shadow-lg)';"
+                   onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #FF6B35 0%, #E63946 100%); border-radius: 50%; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; color: white;">I</div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Image Comics</h3>
+                    <p style="color: var(--color-text-secondary); margin-bottom: 1rem;">Creator-owned titles - The Walking Dead, Spawn, Saga</p>
+                    <span style="color: var(--color-primary); font-weight: 600;">Browse Collection &rarr;</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Community Spotlight -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden;">
+                        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop"
+                            alt="Comic Store"
+                            style="width: 100%; height: 400px; object-fit: cover; border-radius: var(--radius-lg);">
+                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 2rem; color: white;">
+                            <h3 style="color: white; margin: 0; font-size: 1.5rem;">Join Our Community</h3>
+                            <p style="color: rgba(255,255,255,0.9); margin: 0.5rem 0 0 0;">Connect with fellow collectors</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <span class="text-primary" style="font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.875rem;">Community</span>
+                    <h2 style="font-size: 3rem; margin-top: 0.5rem; margin-bottom: 1rem;">Collector's Corner</h2>
+                    <p style="font-size: 1.125rem; margin-bottom: 1.5rem; color: var(--color-text-secondary); line-height: 1.7;">
+                        Join thousands of comic enthusiasts in our vibrant community. Share your collection, discover rare finds, 
+                        and connect with fellow fans. Participate in monthly events, exclusive signings, and collector meetups.
+                    </p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="signup.html" class="btn btn-primary">Join Now</a>
+                        <a href="blog.html" class="btn btn-outline">View Events</a>
+                    </div>
+                    <div style="margin-top: 2rem; display: flex; gap: 2rem; flex-wrap: wrap;">
+                        <div>
+                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--color-primary);">5K+</div>
+                            <div style="color: var(--color-text-secondary); font-size: 0.875rem;">Active Members</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--color-primary);">200+</div>
+                            <div style="color: var(--color-text-secondary); font-size: 0.875rem;">Monthly Events</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--color-primary);">50+</div>
+                            <div style="color: var(--color-text-secondary); font-size: 0.875rem;">Exclusive Signings</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Newsletter CTA -->
+    <section class="py-5" style="background: linear-gradient(135deg, var(--color-primary) 0%, #8B1A1A 100%); color: white; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -50%; right: -10%; width: 400px; height: 400px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+        <div style="position: absolute; bottom: -30%; left: -5%; width: 300px; height: 300px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+        <div class="container" style="position: relative; z-index: 1;">
+            <div class="text-center" style="max-width: 600px; margin: 0 auto;">
+                <h2 style="font-size: 3rem; margin-bottom: 1rem; color: white;">Stay in the Loop</h2>
+                <p style="font-size: 1.25rem; margin-bottom: 2rem; color: rgba(255,255,255,0.9);">
+                    Get exclusive access to new releases, special offers, and collector's tips delivered straight to your inbox.
+                </p>
+                <form action="#" style="display: flex; gap: 1rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap;">
+                    <input type="email" placeholder="Enter your email" 
+                           style="flex: 1; min-width: 250px; padding: 1rem; border: 2px solid rgba(255,255,255,0.3); border-radius: var(--radius-sm); background: rgba(255,255,255,0.1); color: white; font-size: 1rem;"
+                           onfocus="this.style.background='rgba(255,255,255,0.2)'; this.style.borderColor='rgba(255,255,255,0.5)';"
+                           onblur="this.style.background='rgba(255,255,255,0.1)'; this.style.borderColor='rgba(255,255,255,0.3)';">
+                    <button type="submit" class="btn" style="background: white; color: var(--color-primary); padding: 1rem 2rem; font-weight: 700; border: none; border-radius: var(--radius-sm); cursor: pointer; font-size: 1rem; white-space: nowrap;">Subscribe</button>
+                </form>
+                <p style="font-size: 0.875rem; margin-top: 1rem; color: rgba(255,255,255,0.8);">No spam, unsubscribe anytime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reuse Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-family: var(--font-heading); font-size: 2rem; font-weight: 700;">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                            <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
+                            <path d="M12 10C12 9.44772 12.4477 9 13 9H27C27.5523 9 28 9.44772 28 10V30C28 30.5523 27.5523 31 27 31H13C12.4477 31 12 30.5523 12 30V10Z" fill="white" opacity="0.9"/>
+                            <path d="M15 13H25M15 17H25M15 21H22" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="26" cy="23" r="2" fill="var(--color-primary)"/>
+                            <path d="M20 28L15 31V28H20Z" fill="var(--color-accent)"/>
+                        </svg>
+                        <span style="color: #000000; font-family: var(--font-heading); font-size: 2rem; font-weight: 700;">COMIC<span style="color: #000000;">VERSE</span></span>
+                    </div>
+                    <p style="color: var(--color-text-secondary); max-width: 300px;">
+                        Your ultimate destination for comics, graphic novels, and pop culture collectibles.
+                        We bring the multiverse to your doorstep.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">New Arrivals</a></li>
+                        <li><a href="shop.html">Best Sellers</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="shop.html">Pre-Orders</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html">Sitemap</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Join Our Newsletter</h4>
+                    <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-bottom: 1rem;">Get the
+                        latest updates on new releases.</p>
+                    <form action="#" style="display: flex; gap: 0.5rem;">
+                        <input type="email" placeholder="Email address" class="form-control"
+                            style="border-radius: var(--radius-sm);">
+                        <button type="submit" class="btn btn-primary" style="padding: 0.5rem 1rem;">&rarr;</button>
+                    </form>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--color-border); padding-top: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; color: var(--color-text-secondary); font-size: 0.875rem;">
+                <div>&copy; 2026 ComicVerse. All rights reserved.</div>
+                <div>Designed for ThemeForest.</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+</body>
+
+</html>

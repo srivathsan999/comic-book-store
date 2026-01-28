@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - ComicVerse</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <style>
+        /* Filter Side Menu for Mobile/Tablet */
+        @media (max-width: 992px) {
+            #filters-sidebar {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 320px;
+                max-width: 85vw;
+                height: 100vh;
+                background: var(--color-surface);
+                z-index: 1000;
+                overflow-y: auto;
+                transition: left 0.3s ease;
+                box-shadow: var(--shadow-lg);
+                padding: 1.5rem;
+                margin: 0;
+            }
+
+            #filters-sidebar.active {
+                left: 0;
+            }
+
+            #filter-overlay.active {
+                opacity: 1;
+                visibility: visible;
+                display: block;
+            }
+
+            #filter-toggle-btn {
+                display: flex !important;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            #close-filters-btn {
+                display: block !important;
+            }
+
+            /* Adjust main content on mobile when sidebar is hidden */
+            main.col-lg-9 {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 993px) {
+            #filter-overlay {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                    <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
+                    <path d="M12 10C12 9.44772 12.4477 9 13 9H27C27.5523 9 28 9.44772 28 10V30C28 30.5523 27.5523 31 27 31H13C12.4477 31 12 30.5523 12 30V10Z" fill="white" opacity="0.9"/>
+                    <path d="M15 13H25M15 17H25M15 21H22" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="26" cy="23" r="2" fill="var(--color-primary)"/>
+                    <path d="M20 28L15 31V28H20Z" fill="var(--color-accent)"/>
+                </svg>
+                <span>COMIC<span>VERSE</span></span>
+            </a>
+
+            <div class="nav-links">
+                <div class="dropdown">
+                    <a href="index.html" class="nav-link">Home <span style="font-size: 0.8em;">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-item">Home 1</a>
+                        <a href="home-2.html" class="dropdown-item">Home 2 (Variant)</a>
+                    </div>
+                </div>
+                <a href="shop.html" class="nav-link active">Shop</a>
+                <a href="categories.html" class="nav-link">Categories</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+            </div>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-icon" aria-label="Toggle Dark Mode">
+                    <span id="theme-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                </button>
+                <a href="cart.html" class="btn-icon" aria-label="Shopping Cart" style="position: relative;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span id="cart-count" style="position: absolute; top: -8px; right: -8px; background: var(--color-primary); color: white; border-radius: 50%; width: 20px; height: 20px; display: none; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;">0</span>
+                </a>
+                <a href="login.html" class="btn btn-outline" style="font-size: 1rem; padding: 0.5rem 1rem; text-decoration: none;">Login</a>
+                <a href="signup.html" class="btn btn-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">Sign Up</a>
+                <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Toggle Menu"
+                    style="display: none;">&#9776;</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Filter Overlay for Mobile -->
+    <div id="filter-overlay" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 999; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;"></div>
+
+    <div class="container py-5" style="padding-top: 3rem; padding-bottom: 3rem;">
+        <div class="row">
+            <!-- Sidebar -->
+            <aside id="filters-sidebar" class="col-lg-3 mb-4">
+                <div class="glass-panel" style="padding: 1.5rem; border-radius: var(--radius-md);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h3 style="margin: 0;">Filters</h3>
+                        <button id="close-filters-btn" class="btn-icon" style="display: none; font-size: 1.5rem; color: var(--color-text-primary);" aria-label="Close Filters">
+                            &times;
+                        </button>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 1rem;">Categories</h4>
+                        <ul style="color: var(--color-text-secondary); list-style: none; padding: 0;">
+                            <li style="margin-bottom: 0.5rem;"><label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" class="filter-category" value="Marvel"> Marvel</label></li>
+                            <li style="margin-bottom: 0.5rem;"><label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" class="filter-category" value="DC Comics"> DC Comics</label></li>
+                            <li style="margin-bottom: 0.5rem;"><label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" class="filter-category" value="Image Comics"> Image Comics</label></li>
+                            <li style="margin-bottom: 0.5rem;"><label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" class="filter-category" value="Manga"> Manga</label></li>
+                            <li style="margin-bottom: 0.5rem;"><label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" class="filter-category" value="Graphic Novels"> Graphic Novels</label></li>
+                        </ul>
+                    </div>
+
+                    <div class="mb-4">
+                        <h4 style="font-size: 1.1rem; margin-bottom: 1rem;">Price Range</h4>
+                        <input type="range" id="price-range" min="0" max="100" value="100" class="form-control" style="padding: 0;" oninput="updatePriceDisplay(this.value)">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-top: 0.5rem;">
+                            <span>$0</span>
+                            <span id="max-price-display">$100+</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary" onclick="applyFilters()" style="width: 100%; font-size: 1rem; margin-bottom: 0.5rem;">Apply Filters</button>
+                    <button class="btn btn-outline" onclick="clearFilters()" style="width: 100%; font-size: 1rem;">Clear Filters</button>
+                </div>
+            </aside>
+
+            <!-- Product Grid -->
+            <main class="col-lg-9">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <button id="filter-toggle-btn" class="btn btn-outline" style="display: none; font-size: 1rem; padding: 0.5rem 1rem; align-items: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
+                                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+                            </svg>
+                            Filters
+                        </button>
+                        <h1 style="margin: 0;">All Comics</h1>
+                    </div>
+                    <select id="sort-select" class="form-control" style="width: auto; display: inline-block;" onchange="applyFilters()">
+                        <option value="newest">Newest Arrivals</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="popularity">Popularity</option>
+                    </select>
+                </div>
+
+                <div class="row product-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; width: 100%;">
+                    <!-- Repeated Cards -->
+                    <!-- Card 1 -->
+                    <div class="mb-4 product-item" data-category="Marvel" data-price="25.00" data-popularity="5" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                        <article class="comic-card">
+                            <div class="comic-image-wrapper">
+                                <a href="product-details.html">
+                                    <img src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=600&auto=format&fit=crop"
+                                        class="comic-image" alt="Comic">
+                                </a>
+                            </div>
+                            <div class="comic-content">
+                                <span class="comic-category">Marvel</span>
+                                <h3 class="comic-title"><a href="product-details.html">Avengers #1</a></h3>
+                                <div class="comic-price">$25.00</div>
+                                <div id="cart-controls-Avengers #1" style="margin-top: 1rem;">
+                                    <button class="btn btn-primary" onclick="addToCart('Avengers #1', 25.00, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="mb-4 product-item" data-category="DC Comics" data-price="12.99" data-popularity="4" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                        <article class="comic-card">
+                            <div class="comic-image-wrapper">
+                                <a href="product-details.html">
+                                    <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?q=80&w=600&auto=format&fit=crop"
+                                        class="comic-image" alt="Batman">
+                                </a>
+                            </div>
+                            <div class="comic-content">
+                                <span class="comic-category">DC</span>
+                                <h3 class="comic-title"><a href="product-details.html">Batman #50</a></h3>
+                                <div class="comic-price">$12.99</div>
+                                <div id="cart-controls-Batman #50" style="margin-top: 1rem;">
+                                    <button class="btn btn-primary" onclick="addToCart('Batman #50', 12.99, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="mb-4 product-item" data-category="Graphic Novels" data-price="9.99" data-popularity="3" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                        <article class="comic-card">
+                            <div class="comic-image-wrapper">
+                                <a href="product-details.html">
+                                    <img src="https://images.unsplash.com/photo-1534809027769-b00d750a6bac?q=80&w=600&auto=format&fit=crop"
+                                        class="comic-image" alt="Comic">
+                                </a>
+                            </div>
+                            <div class="comic-content">
+                                <span class="comic-category">Indie</span>
+                                <h3 class="comic-title"><a href="product-details.html">Saga Vol. 1</a></h3>
+                                <div class="comic-price">$9.99</div>
+                                <div id="cart-controls-Saga Vol. 1" style="margin-top: 1rem;">
+                                    <button class="btn btn-primary" onclick="addToCart('Saga Vol. 1', 9.99, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="mb-4 product-item" data-category="Marvel" data-price="19.99" data-popularity="5" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                        <article class="comic-card">
+                            <div class="comic-image-wrapper">
+                                <a href="product-details.html">
+                                    <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?q=80&w=600&auto=format&fit=crop"
+                                        class="comic-image" alt="Spider-Man">
+                                </a>
+                            </div>
+                            <div class="comic-content">
+                                <span class="comic-category">Marvel</span>
+                                <h3 class="comic-title"><a href="product-details.html">Spider-Man #300</a></h3>
+                                <div class="comic-price">$19.99</div>
+                                <div id="cart-controls-Spider-Man #300" style="margin-top: 1rem;">
+                                    <button class="btn btn-primary" onclick="addToCart('Spider-Man #300', 19.99, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Card 5 -->
+                    <div class="mb-4 product-item" data-category="Marvel" data-price="15.50" data-popularity="4" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                        <article class="comic-card">
+                            <div class="comic-image-wrapper">
+                                <a href="product-details.html">
+                                    <img src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=600&auto=format&fit=crop"
+                                        class="comic-image" alt="X-Men">
+                                </a>
+                            </div>
+                            <div class="comic-content">
+                                <span class="comic-category">Marvel</span>
+                                <h3 class="comic-title"><a href="product-details.html">X-Men Gold #1</a></h3>
+                                <div class="comic-price">$15.50</div>
+                                <div id="cart-controls-X-Men Gold #1" style="margin-top: 1rem;">
+                                    <button class="btn btn-primary" onclick="addToCart('X-Men Gold #1', 15.50, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Card 6 -->
+                    <div class="mb-4 product-item" data-category="Graphic Novels" data-price="22.00" data-popularity="5" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                        <article class="comic-card">
+                            <div class="comic-image-wrapper">
+                                <a href="product-details.html">
+                                    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=600&auto=format&fit=crop"
+                                        class="comic-image" alt="Watchmen">
+                                </a>
+                            </div>
+                            <div class="comic-content">
+                                <span class="comic-category">Graphic Novel</span>
+                                <h3 class="comic-title"><a href="product-details.html">Watchmen</a></h3>
+                                <div class="comic-price">$22.00</div>
+                                <div id="cart-controls-Watchmen" style="margin-top: 1rem;">
+                                    <button class="btn btn-primary" onclick="addToCart('Watchmen', 22.00, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Card 7 -->
+                    <div class="mb-4 product-item" data-category="Image Comics" data-price="29.99" data-popularity="4" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                        <article class="comic-card">
+                            <div class="comic-image-wrapper">
+                                <a href="product-details.html">
+                                    <img src="https://images.unsplash.com/photo-1620336655055-088d06e36bf0?q=80&w=600&auto=format&fit=crop"
+                                        class="comic-image" alt="The Walking Dead">
+                                </a>
+                            </div>
+                            <div class="comic-content">
+                                <span class="comic-category">Image Comics</span>
+                                <h3 class="comic-title"><a href="product-details.html">The Walking Dead #1</a></h3>
+                                <div class="comic-price">$29.99</div>
+                                <div id="cart-controls-The Walking Dead #1" style="margin-top: 1rem;">
+                                    <button class="btn btn-primary" onclick="addToCart('The Walking Dead #1', 29.99, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Card 8 -->
+                    <div class="mb-4 product-item" data-category="DC Comics" data-price="45.00" data-popularity="5" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                        <article class="comic-card">
+                            <div class="comic-image-wrapper">
+                                <a href="product-details.html">
+                                    <img src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?q=80&w=600&auto=format&fit=crop"
+                                        class="comic-image" alt="Superman">
+                                </a>
+                            </div>
+                            <div class="comic-content">
+                                <span class="comic-category">DC Comics</span>
+                                <h3 class="comic-title"><a href="product-details.html">Superman #1</a></h3>
+                                <div class="comic-price">$45.00</div>
+                                <div id="cart-controls-Superman #1" style="margin-top: 1rem;">
+                                    <button class="btn btn-primary" onclick="addToCart('Superman #1', 45.00, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- Card 9 -->
+                    <div class="mb-4 product-item" data-category="Graphic Novels" data-price="18.99" data-popularity="3" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                        <article class="comic-card">
+                            <div class="comic-image-wrapper">
+                                <a href="product-details.html">
+                                    <img src="https://images.unsplash.com/photo-1569003339405-ea396a5a8a90?q=80&w=600&auto=format&fit=crop"
+                                        class="comic-image" alt="Hellboy">
+                                </a>
+                            </div>
+                            <div class="comic-content">
+                                <span class="comic-category">Dark Horse</span>
+                                <h3 class="comic-title"><a href="product-details.html">Hellboy: Seed of Destruction</a></h3>
+                                <div class="comic-price">$18.99</div>
+                                <div id="cart-controls-Hellboy: Seed of Destruction" style="margin-top: 1rem;">
+                                    <button class="btn btn-primary" onclick="addToCart('Hellboy: Seed of Destruction', 18.99, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="mt-5" style="display: flex; justify-content: center; gap: 0.5rem;">
+                    <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;">&laquo;</a>
+                    <a href="#" class="btn btn-primary" style="padding: 0.5rem 1rem;">1</a>
+                    <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;">2</a>
+                    <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;">3</a>
+                    <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem;">&raquo;</a>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Reuse Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-family: var(--font-heading); font-size: 2rem; font-weight: 700;">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                            <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
+                            <path d="M12 10C12 9.44772 12.4477 9 13 9H27C27.5523 9 28 9.44772 28 10V30C28 30.5523 27.5523 31 27 31H13C12.4477 31 12 30.5523 12 30V10Z" fill="white" opacity="0.9"/>
+                            <path d="M15 13H25M15 17H25M15 21H22" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="26" cy="23" r="2" fill="var(--color-primary)"/>
+                            <path d="M20 28L15 31V28H20Z" fill="var(--color-accent)"/>
+                        </svg>
+                        <span style="color: #000000; font-family: var(--font-heading); font-size: 2rem; font-weight: 700;">COMIC<span style="color: #000000;">VERSE</span></span>
+                    </div>
+                    <p style="color: var(--color-text-secondary); max-width: 300px;">
+                        Your ultimate destination for comics, graphic novels, and pop culture collectibles.
+                        We bring the multiverse to your doorstep.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">New Arrivals</a></li>
+                        <li><a href="shop.html">Best Sellers</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="shop.html">Pre-Orders</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html">Sitemap</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Join Our Newsletter</h4>
+                    <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-bottom: 1rem;">Get the
+                        latest updates on new releases.</p>
+                    <form action="#" style="display: flex; gap: 0.5rem;">
+                        <input type="email" placeholder="Email address" class="form-control"
+                            style="border-radius: var(--radius-sm);">
+                        <button type="submit" class="btn btn-primary" style="padding: 0.5rem 1rem;">&rarr;</button>
+                    </form>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--color-border); padding-top: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; color: var(--color-text-secondary); font-size: 0.875rem;">
+                <div>&copy; 2026 ComicVerse. All rights reserved.</div>
+                <div>Designed for ThemeForest.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Cart functionality
+        function addToCart(productName, price, button) {
+            const quantity = 1;
+            
+            // Get existing cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Check if product already exists in cart
+            const existingItem = cart.find(item => item.name === productName);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    name: productName,
+                    price: price,
+                    quantity: quantity
+                });
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+            
+            // Update cart count in navbar
+            updateCartCount();
+            
+            // Show quantity controls
+            showCartControls(productName, price);
+        }
+        
+        function showCartControls(productName, price) {
+            const controlsDiv = document.getElementById('cart-controls-' + productName);
+            if (!controlsDiv) return;
+            
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart.find(item => item.name === productName);
+            const quantity = item ? item.quantity : 1;
+            
+            controlsDiv.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <button onclick="updateCartQuantity('${productName}', ${price}, -1)" style="width: 36px; height: 36px; border: 1px solid var(--color-border); background: var(--color-background); border-radius: var(--radius-sm); cursor: pointer; font-size: 1.25rem; display: flex; align-items: center; justify-content: center;">-</button>
+                    <span id="quantity-${productName.replace(/\s+/g, '-')}" style="min-width: 50px; text-align: center; font-weight: 600; font-size: 1rem;">${quantity}</span>
+                    <button onclick="updateCartQuantity('${productName}', ${price}, 1)" style="width: 36px; height: 36px; border: 1px solid var(--color-border); background: var(--color-background); border-radius: var(--radius-sm); cursor: pointer; font-size: 1.25rem; display: flex; align-items: center; justify-content: center;">+</button>
+                    <button onclick="removeFromCart('${productName}')" class="btn btn-outline" style="flex: 1; padding: 0.5rem 1rem; font-size: 0.875rem; margin-left: 0.5rem;">Remove</button>
+                </div>
+            `;
+        }
+        
+        function updateCartQuantity(productName, price, change) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const item = cart.find(item => item.name === productName);
+            
+            if (item) {
+                item.quantity += change;
+                if (item.quantity <= 0) {
+                    removeFromCart(productName);
+                    return;
+                }
+            } else if (change > 0) {
+                cart.push({
+                    name: productName,
+                    price: price,
+                    quantity: change
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            
+            const quantitySpan = document.getElementById('quantity-' + productName.replace(/\s+/g, '-'));
+            if (quantitySpan && item) {
+                quantitySpan.textContent = item.quantity;
+            } else {
+                showCartControls(productName, price);
+            }
+        }
+        
+        function removeFromCart(productName) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = cart.filter(item => item.name !== productName);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            
+            // Reset to "Add to Cart" button
+            const controlsDiv = document.getElementById('cart-controls-' + productName);
+            if (controlsDiv) {
+                // Get price from the card
+                const priceElement = controlsDiv.closest('.comic-content').querySelector('.comic-price');
+                if (priceElement) {
+                    const priceText = priceElement.textContent.replace('$', '').trim();
+                    const price = parseFloat(priceText);
+                    
+                    controlsDiv.innerHTML = `
+                        <button class="btn btn-primary" onclick="addToCart('${productName}', ${price}, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                    `;
+                }
+            }
+        }
+        
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartBadge = document.getElementById('cart-count');
+            if (cartBadge) {
+                cartBadge.textContent = totalItems;
+                cartBadge.style.display = totalItems > 0 ? 'flex' : 'none';
+            }
+        }
+        
+        // Initialize cart controls on page load
+        function initializeCartControls() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const products = [
+                { name: 'Avengers #1', price: 25.00 },
+                { name: 'Batman #50', price: 12.99 },
+                { name: 'Saga Vol. 1', price: 9.99 },
+                { name: 'Spider-Man #300', price: 19.99 },
+                { name: 'X-Men Gold #1', price: 15.50 },
+                { name: 'Watchmen', price: 22.00 },
+                { name: 'The Walking Dead #1', price: 29.99 },
+                { name: 'Superman #1', price: 45.00 },
+                { name: 'Hellboy: Seed of Destruction', price: 18.99 }
+            ];
+            
+            products.forEach(product => {
+                const item = cart.find(item => item.name === product.name);
+                if (item) {
+                    showCartControls(product.name, product.price);
+                }
+            });
+        }
+        
+        // Update cart count on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            initializeCartControls();
+            updatePriceDisplay(100);
+            initFilterMenu();
+        });
+
+        // Filter Side Menu for Mobile/Tablet
+        function initFilterMenu() {
+            const filterToggleBtn = document.getElementById('filter-toggle-btn');
+            const closeFiltersBtn = document.getElementById('close-filters-btn');
+            const filtersSidebar = document.getElementById('filters-sidebar');
+            const filterOverlay = document.getElementById('filter-overlay');
+
+            function showFilterMenu() {
+                if (filtersSidebar) {
+                    filtersSidebar.classList.add('active');
+                }
+                if (filterOverlay) {
+                    filterOverlay.classList.add('active');
+                }
+                document.body.style.overflow = 'hidden';
+            }
+
+            function hideFilterMenu() {
+                if (filtersSidebar) {
+                    filtersSidebar.classList.remove('active');
+                }
+                if (filterOverlay) {
+                    filterOverlay.classList.remove('active');
+                }
+                document.body.style.overflow = '';
+            }
+
+            if (filterToggleBtn) {
+                filterToggleBtn.addEventListener('click', showFilterMenu);
+            }
+
+            if (closeFiltersBtn) {
+                closeFiltersBtn.addEventListener('click', hideFilterMenu);
+            }
+
+            if (filterOverlay) {
+                filterOverlay.addEventListener('click', hideFilterMenu);
+            }
+
+            // Show/hide filter button based on screen size
+            function updateFilterButtonVisibility() {
+                if (window.innerWidth <= 992) {
+                    if (filterToggleBtn) filterToggleBtn.style.display = 'flex';
+                    if (closeFiltersBtn) closeFiltersBtn.style.display = 'block';
+                } else {
+                    if (filterToggleBtn) filterToggleBtn.style.display = 'none';
+                    if (closeFiltersBtn) closeFiltersBtn.style.display = 'none';
+                    hideFilterMenu();
+                }
+            }
+
+            updateFilterButtonVisibility();
+            window.addEventListener('resize', updateFilterButtonVisibility);
+        }
+        
+        // Filter and Sort functionality
+        function updatePriceDisplay(value) {
+            const display = document.getElementById('max-price-display');
+            if (display) {
+                if (value >= 100) {
+                    display.textContent = '$100+';
+                } else {
+                    display.textContent = '$' + value;
+                }
+            }
+        }
+        
+        function getSelectedCategories() {
+            const checkboxes = document.querySelectorAll('.filter-category:checked');
+            return Array.from(checkboxes).map(cb => cb.value);
+        }
+        
+        function getMaxPrice() {
+            const slider = document.getElementById('price-range');
+            return slider ? parseFloat(slider.value) : 100;
+        }
+        
+        function getSortOption() {
+            const select = document.getElementById('sort-select');
+            return select ? select.value : 'newest';
+        }
+        
+        function applyFilters() {
+            const selectedCategories = getSelectedCategories();
+            const maxPrice = getMaxPrice();
+            const sortOption = getSortOption();
+            const productItems = document.querySelectorAll('.product-item');
+            const productGrid = document.querySelector('.product-grid');
+            
+            let visibleCount = 0;
+            const itemsArray = Array.from(productItems);
+            
+            // Filter products
+            itemsArray.forEach(item => {
+                const category = item.getAttribute('data-category');
+                const price = parseFloat(item.getAttribute('data-price'));
+                
+                // Check category filter
+                const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(category);
+                
+                // Check price filter
+                const priceMatch = price <= maxPrice;
+                
+                // Show/hide based on filters
+                if (categoryMatch && priceMatch) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Sort visible items
+            const visibleItems = itemsArray.filter(item => item.style.display !== 'none');
+            
+            visibleItems.sort((a, b) => {
+                switch(sortOption) {
+                    case 'price-low':
+                        return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
+                    case 'price-high':
+                        return parseFloat(b.getAttribute('data-price')) - parseFloat(a.getAttribute('data-price'));
+                    case 'popularity':
+                        return parseFloat(b.getAttribute('data-popularity')) - parseFloat(a.getAttribute('data-popularity'));
+                    case 'newest':
+                    default:
+                        return 0; // Keep original order for newest
+                }
+            });
+            
+            // Reorder DOM elements
+            visibleItems.forEach(item => {
+                productGrid.appendChild(item);
+            });
+            
+            // Show message if no results
+            let noResultsMsg = document.getElementById('no-results-message');
+            if (visibleCount === 0) {
+                if (!noResultsMsg) {
+                    noResultsMsg = document.createElement('div');
+                    noResultsMsg.id = 'no-results-message';
+                    noResultsMsg.style.textAlign = 'center';
+                    noResultsMsg.style.padding = '3rem';
+                    noResultsMsg.style.color = 'var(--color-text-secondary)';
+                    noResultsMsg.innerHTML = '<h3>No products found</h3><p>Try adjusting your filters</p>';
+                    productGrid.parentNode.insertBefore(noResultsMsg, productGrid);
+                }
+            } else {
+                if (noResultsMsg) {
+                    noResultsMsg.remove();
+                }
+            }
+
+            // Close filter menu on mobile after applying filters
+            if (window.innerWidth <= 992) {
+                const filtersSidebar = document.getElementById('filters-sidebar');
+                const filterOverlay = document.getElementById('filter-overlay');
+                if (filtersSidebar) filtersSidebar.classList.remove('active');
+                if (filterOverlay) filterOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+        
+        function clearFilters() {
+            // Uncheck all category checkboxes
+            document.querySelectorAll('.filter-category').forEach(cb => {
+                cb.checked = false;
+            });
+            
+            // Reset price range
+            const priceSlider = document.getElementById('price-range');
+            if (priceSlider) {
+                priceSlider.value = 100;
+                updatePriceDisplay(100);
+            }
+            
+            // Reset sort
+            const sortSelect = document.getElementById('sort-select');
+            if (sortSelect) {
+                sortSelect.value = 'newest';
+            }
+            
+            // Apply filters (which will show all items)
+            applyFilters();
+        }
+    </script>
+    <script src="assets/js/cart.js"></script>
+</body>
+
+</html>

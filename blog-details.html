@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Details - ComicVerse</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                    <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
+                    <path d="M12 10C12 9.44772 12.4477 9 13 9H27C27.5523 9 28 9.44772 28 10V30C28 30.5523 27.5523 31 27 31H13C12.4477 31 12 30.5523 12 30V10Z" fill="white" opacity="0.9"/>
+                    <path d="M15 13H25M15 17H25M15 21H22" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="26" cy="23" r="2" fill="var(--color-primary)"/>
+                    <path d="M20 28L15 31V28H20Z" fill="var(--color-accent)"/>
+                </svg>
+                <span>COMIC<span>VERSE</span></span>
+            </a>
+
+            <div class="nav-links">
+                <div class="dropdown">
+                    <a href="index.html" class="nav-link">Home <span style="font-size: 0.8em;">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-item">Home 1</a>
+                        <a href="home-2.html" class="dropdown-item">Home 2 (Variant)</a>
+                    </div>
+                </div>
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="categories.html" class="nav-link">Categories</a>
+                <a href="blog.html" class="nav-link active">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+            </div>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-icon" aria-label="Toggle Dark Mode">
+                    <span id="theme-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                </button>
+                <a href="cart.html" class="btn-icon" aria-label="Shopping Cart" style="position: relative;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span id="cart-count" style="position: absolute; top: -8px; right: -8px; background: var(--color-primary); color: white; border-radius: 50%; width: 20px; height: 20px; display: none; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;">0</span>
+                </a>
+                <a href="login.html" class="btn btn-outline" style="font-size: 1rem; padding: 0.5rem 1rem; text-decoration: none;">Login</a>
+                <a href="signup.html" class="btn btn-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">Sign Up</a>
+                <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Toggle Menu"
+                    style="display: none;">&#9776;</button>
+            </div>
+        </div>
+    </nav>
+
+    <article class="py-5">
+        <div class="container" style="max-width: 800px;">
+            <div id="blog-content">
+                <!-- Content will be dynamically loaded here -->
+            </div>
+            <div class="mt-5 pt-5" style="border-top: 1px solid var(--color-border);">
+                <a href="blog.html" class="btn btn-outline">&larr; Back to Blog</a>
+            </div>
+        </div>
+    </article>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-family: var(--font-heading); font-size: 2rem; font-weight: 700;">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                            <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
+                            <path d="M12 10C12 9.44772 12.4477 9 13 9H27C27.5523 9 28 9.44772 28 10V30C28 30.5523 27.5523 31 27 31H13C12.4477 31 12 30.5523 12 30V10Z" fill="white" opacity="0.9"/>
+                            <path d="M15 13H25M15 17H25M15 21H22" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="26" cy="23" r="2" fill="var(--color-primary)"/>
+                            <path d="M20 28L15 31V28H20Z" fill="var(--color-accent)"/>
+                        </svg>
+                        <span style="color: #000000; font-family: var(--font-heading); font-size: 2rem; font-weight: 700;">COMIC<span style="color: #000000;">VERSE</span></span>
+                    </div>
+                    <p style="color: var(--color-text-secondary); max-width: 300px;">
+                        Your ultimate destination for comics, graphic novels, and pop culture collectibles.
+                        We bring the multiverse to your doorstep.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">New Arrivals</a></li>
+                        <li><a href="shop.html">Best Sellers</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="shop.html">Pre-Orders</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html">Sitemap</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Join Our Newsletter</h4>
+                    <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-bottom: 1rem;">Get the
+                        latest updates on new releases.</p>
+                    <form action="#" style="display: flex; gap: 0.5rem;">
+                        <input type="email" placeholder="Email address" class="form-control"
+                            style="border-radius: var(--radius-sm);">
+                        <button type="submit" class="btn btn-primary" style="padding: 0.5rem 1rem;">&rarr;</button>
+                    </form>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--color-border); padding-top: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; color: var(--color-text-secondary); font-size: 0.875rem;">
+                <div>&copy; 2026 ComicVerse. All rights reserved.</div>
+                <div>Designed for ThemeForest.</div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script>
+        // Blog articles data
+        const blogArticles = {
+            'top-10-releases': {
+                category: 'News',
+                title: 'Top 10 Releases This Summer',
+                author: 'Sarah Connor',
+                date: 'Jun 15, 2026',
+                image: 'https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=1000&auto=format&fit=crop',
+                content: `
+                    <p class="mb-4">Summer 2026 is shaping up to be one of the most exciting seasons for comic book releases in recent memory. From long-awaited sequels to groundbreaking new series, there's something for every fan.</p>
+                    <p class="mb-4">Marvel is bringing back some fan favorites, while DC is launching ambitious new storylines that promise to reshape their universe. Independent publishers are also making waves with innovative storytelling.</p>
+                    <h3 class="my-4">Must-Read Releases</h3>
+                    <p class="mb-4">Our top picks include the return of classic characters, crossover events that will have lasting impacts, and debut series from acclaimed creators. Each release has been carefully selected based on early reviews, creator track records, and fan anticipation.</p>
+                    <blockquote style="border-left: 4px solid var(--color-primary); padding-left: 1rem; font-style: italic; color: var(--color-text-secondary);">
+                        "This summer's lineup proves that comics are entering a new golden age of creativity and storytelling."
+                    </blockquote>
+                    <h3 class="my-4">What to Watch For</h3>
+                    <p class="mb-4">Keep an eye on variant covers, limited editions, and special collector's editions that are already generating buzz in the community. Early pre-orders are recommended for the most sought-after issues.</p>
+                `
+            },
+            'dark-knight-returns': {
+                category: 'Review',
+                title: 'Review: The Dark Knight Returns',
+                author: 'Bruce Wayne',
+                date: 'Oct 12, 2025',
+                image: 'https://images.unsplash.com/photo-1608889476561-6242cfdbf622?q=80&w=1000&auto=format&fit=crop',
+                content: `
+                    <p class="mb-4">Frank Miller's masterpiece changed the industry forever. But looking back, does it still hold up? The answer is a resounding yes.</p>
+                    <p class="mb-4">The gritty atmosphere, the political commentary, and the sheer weight of an older Batman fighting a war he can't win—it's all there.</p>
+                    <h3 class="my-4">The Art Style</h3>
+                    <p class="mb-4">Miller's art is polarizing, but effective. It conveys the brutality of Gotham like no other. The heavy shadows and bold lines create a sense of urgency and danger that perfectly matches the narrative.</p>
+                    <blockquote style="border-left: 4px solid var(--color-primary); padding-left: 1rem; font-style: italic; color: var(--color-text-secondary);">
+                        "You don't get it, boy. This isn't a mudhole. It's an operating table. And I'm the surgeon."
+                    </blockquote>
+                    <h3 class="my-4">Legacy and Impact</h3>
+                    <p class="mb-4">Nearly four decades later, The Dark Knight Returns continues to influence how we see Batman and superhero comics in general. Its mature themes and complex characterizations set a new standard for the medium.</p>
+                `
+            },
+            'comic-con-2026': {
+                category: 'Events',
+                title: 'Comic Con 2026 Recap',
+                author: 'Peter Parker',
+                date: 'Jul 28, 2026',
+                image: 'https://images.unsplash.com/photo-1534809027769-b00d750a6bac?q=80&w=1000&auto=format&fit=crop',
+                content: `
+                    <p class="mb-4">Comic Con 2026 was nothing short of spectacular. The energy was electric as thousands of fans, creators, and industry professionals gathered to celebrate everything we love about comics.</p>
+                    <p class="mb-4">From jaw-dropping cosplay to exclusive reveals, this year's convention delivered on every front. Major publishers announced game-changing storylines, and independent creators showcased innovative new works.</p>
+                    <h3 class="my-4">The Cosplay Scene</h3>
+                    <p class="mb-4">The cosplay competition was fierce this year, with incredible attention to detail and creativity. We saw everything from classic superheroes to obscure indie characters brought to life with stunning accuracy.</p>
+                    <h3 class="my-4">Exclusive Reveals</h3>
+                    <p class="mb-4">The biggest announcements included major crossover events, new character debuts, and surprise collaborations between legendary creators. The convention floor buzzed with excitement as each reveal dropped.</p>
+                    <blockquote style="border-left: 4px solid var(--color-primary); padding-left: 1rem; font-style: italic; color: var(--color-text-secondary);">
+                        "Comic Con 2026 reminded us why we fell in love with this medium in the first place."
+                    </blockquote>
+                    <h3 class="my-4">Looking Forward</h3>
+                    <p class="mb-4">With so many exciting projects announced, the next year promises to be incredible for comic fans. Mark your calendars for next year's event—you won't want to miss it.</p>
+                `
+            },
+            'investing-guide': {
+                category: 'Guide',
+                title: 'Investing in Comics: A Beginner\'s Guide',
+                author: 'Tony Stark',
+                date: 'Sep 5, 2026',
+                image: 'https://images.unsplash.com/photo-1620336655055-088d06e36bf0?q=80&w=1000&auto=format&fit=crop',
+                content: `
+                    <p class="mb-4">Comic book investing has become increasingly popular, but it's not as simple as buying old issues and waiting. Smart investing requires knowledge, patience, and a strategic approach.</p>
+                    <p class="mb-4">The key to successful comic investing is understanding what makes a comic valuable: first appearances, key storylines, condition, and market demand all play crucial roles.</p>
+                    <h3 class="my-4">What to Look For</h3>
+                    <p class="mb-4">First appearances of major characters are often the most valuable. Key storylines, variant covers, and limited print runs also command premium prices. Always check the condition—graded comics (CGC) typically sell for significantly more.</p>
+                    <h3 class="my-4">Preservation Tips</h3>
+                    <p class="mb-4">Proper storage is essential. Use acid-free bags and boards, store in a cool, dry place away from direct sunlight, and consider professional grading for valuable issues. A well-preserved comic can be worth 10x more than a damaged one.</p>
+                    <blockquote style="border-left: 4px solid var(--color-primary); padding-left: 1rem; font-style: italic; color: var(--color-text-secondary);">
+                        "Invest in what you love, but invest smart. Research before you buy, and always prioritize condition."
+                    </blockquote>
+                    <h3 class="my-4">Common Mistakes</h3>
+                    <p class="mb-4">Avoid buying based solely on hype, overpaying for common issues, or neglecting proper storage. Remember: not every #1 issue is valuable, and not every valuable comic is a #1 issue.</p>
+                `
+            },
+            'indie-comics': {
+                category: 'Spotlight',
+                title: 'Indie Comics You Should Be Reading',
+                author: 'Diana Prince',
+                date: 'Aug 20, 2026',
+                image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1000&auto=format&fit=crop',
+                content: `
+                    <p class="mb-4">While Marvel and DC dominate headlines, independent comics are producing some of the most innovative and compelling stories in the industry today.</p>
+                    <p class="mb-4">These hidden gems offer fresh perspectives, unique art styles, and storytelling that pushes boundaries. From slice-of-life dramas to mind-bending sci-fi, indie comics have something for everyone.</p>
+                    <h3 class="my-4">Why Indie Comics Matter</h3>
+                    <p class="mb-4">Independent creators have the freedom to explore themes and styles that mainstream publishers might avoid. This creative freedom results in some of the most original and thought-provoking work in comics.</p>
+                    <h3 class="my-4">Our Top Picks</h3>
+                    <p class="mb-4">We've curated a list of must-read indie titles that showcase the diversity and quality of independent publishing. These creators are pushing the medium forward and deserve your attention.</p>
+                    <blockquote style="border-left: 4px solid var(--color-primary); padding-left: 1rem; font-style: italic; color: var(--color-text-secondary);">
+                        "The best stories often come from creators who aren't bound by corporate expectations."
+                    </blockquote>
+                    <h3 class="my-4">Supporting Independent Creators</h3>
+                    <p class="mb-4">When you buy indie comics, you're directly supporting creators and helping ensure diverse voices continue to be heard. Many of today's indie creators will be tomorrow's industry leaders.</p>
+                `
+            },
+            'comic-covers': {
+                category: 'Art',
+                title: 'The Art of Comic Book Covers',
+                author: 'Alex Ross',
+                date: 'Nov 10, 2026',
+                image: 'https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?q=80&w=1000&auto=format&fit=crop',
+                content: `
+                    <p class="mb-4">A comic book cover is more than just packaging—it's a work of art that captures the essence of a story, entices readers, and often becomes iconic in its own right.</p>
+                    <p class="mb-4">Throughout history, legendary artists have created covers that define eras, characters, and entire series. From Alex Ross's photorealistic paintings to Jack Kirby's dynamic action scenes, cover art has evolved into an art form all its own.</p>
+                    <h3 class="my-4">The Golden Age</h3>
+                    <p class="mb-4">Early comic covers were designed to grab attention on newsstands. Bold colors, dramatic poses, and action-packed scenes were the norm. These covers set the foundation for what would become a rich tradition of cover artistry.</p>
+                    <h3 class="my-4">Modern Masters</h3>
+                    <p class="mb-4">Today's cover artists blend traditional techniques with digital tools to create stunning visuals. Artists like J. Scott Campbell, Artgerm, and Jenny Frison have become known for their distinctive cover styles that collectors seek out.</p>
+                    <blockquote style="border-left: 4px solid var(--color-primary); padding-left: 1rem; font-style: italic; color: var(--color-text-secondary);">
+                        "A great cover tells a story before you even open the book. It's the first impression, and first impressions matter."
+                    </blockquote>
+                    <h3 class="my-4">Collecting Cover Art</h3>
+                    <p class="mb-4">Variant covers have become a major part of collecting culture. Limited edition covers, artist variants, and special event covers can significantly increase a comic's value and appeal to collectors.</p>
+                `
+            }
+        };
+
+        // Get article ID from URL parameter
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            const regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            const results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Load blog article
+        function loadBlogArticle() {
+            const articleId = getUrlParameter('article') || 'dark-knight-returns';
+            const article = blogArticles[articleId];
+
+            if (!article) {
+                // Default to first article if not found
+                const firstKey = Object.keys(blogArticles)[0];
+                const defaultArticle = blogArticles[firstKey];
+                displayArticle(defaultArticle);
+                return;
+            }
+
+            displayArticle(article);
+        }
+
+        // Display article content
+        function displayArticle(article) {
+            const contentDiv = document.getElementById('blog-content');
+            contentDiv.innerHTML = `
+                <span class="text-primary" style="font-weight: 700; text-transform: uppercase;">${article.category}</span>
+                <h1 style="font-size: 3rem; margin-bottom: 1rem;">${article.title}</h1>
+                <div style="display: flex; gap: 1rem; color: var(--color-text-secondary); margin-bottom: 2rem;">
+                    <span>By ${article.author}</span>
+                    <span>•</span>
+                    <span>${article.date}</span>
+                </div>
+                <img src="${article.image}" style="width: 100%; border-radius: var(--radius-md); margin-bottom: 2rem;" alt="${article.title}">
+                <div style="font-size: 1.125rem; line-height: 1.8;">
+                    ${article.content}
+                </div>
+            `;
+        }
+
+        // Load article on page load
+        document.addEventListener('DOMContentLoaded', loadBlogArticle);
+    </script>
+    <script src="assets/js/cart.js"></script>
+</body>
+
+</html>

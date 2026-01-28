@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - ComicVerse</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                    <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
+                    <path d="M12 10C12 9.44772 12.4477 9 13 9H27C27.5523 9 28 9.44772 28 10V30C28 30.5523 27.5523 31 27 31H13C12.4477 31 12 30.5523 12 30V10Z" fill="white" opacity="0.9"/>
+                    <path d="M15 13H25M15 17H25M15 21H22" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="26" cy="23" r="2" fill="var(--color-primary)"/>
+                    <path d="M20 28L15 31V28H20Z" fill="var(--color-accent)"/>
+                </svg>
+                <span>COMIC<span>VERSE</span></span>
+            </a>
+
+            <div class="nav-links">
+                <div class="dropdown">
+                    <a href="index.html" class="nav-link">Home <span style="font-size: 0.8em;">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-item">Home 1</a>
+                        <a href="home-2.html" class="dropdown-item">Home 2 (Variant)</a>
+                    </div>
+                </div>
+                <a href="shop.html" class="nav-link">Shop</a>
+                <a href="categories.html" class="nav-link">Categories</a>
+                <a href="blog.html" class="nav-link active">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+            </div>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-icon" aria-label="Toggle Dark Mode">
+                    <span id="theme-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                </button>
+                <a href="cart.html" class="btn-icon" aria-label="Shopping Cart" style="position: relative;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span id="cart-count" style="position: absolute; top: -8px; right: -8px; background: var(--color-primary); color: white; border-radius: 50%; width: 20px; height: 20px; display: none; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;">0</span>
+                </a>
+                <a href="login.html" class="btn btn-outline" style="font-size: 1rem; padding: 0.5rem 1rem; text-decoration: none;">Login</a>
+                <a href="signup.html" class="btn btn-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">Sign Up</a>
+                <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Toggle Menu"
+                    style="display: none;">&#9776;</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-5">
+        <h1 class="mb-5 text-center">Comic Culture Blog</h1>
+        <div class="row">
+            <!-- Article 1 -->
+            <div class="col-md-4 mb-4">
+                <article class="comic-card">
+                    <div class="comic-image-wrapper">
+                        <a href="blog-details.html?article=top-10-releases"><img
+                                src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?q=80&w=600"
+                                class="comic-image" alt="Article"></a>
+                    </div>
+                    <div class="comic-content">
+                        <span class="comic-category">News</span>
+                        <h3 class="comic-title"><a href="blog-details.html?article=top-10-releases">Top 10 Releases This Summer</a></h3>
+                        <p class="text-secondary mb-3">A breakdown of the most anticipated graphic novels coming your
+                            way.</p>
+                        <a href="blog-details.html?article=top-10-releases" class="text-primary" style="font-weight: 700;">Read More &rarr;</a>
+                    </div>
+                </article>
+            </div>
+            <!-- Article 2 -->
+            <div class="col-md-4 mb-4">
+                <article class="comic-card">
+                    <div class="comic-image-wrapper">
+                        <a href="blog-details.html?article=dark-knight-returns"><img
+                                src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?q=80&w=600"
+                                class="comic-image" alt="Article"></a>
+                    </div>
+                    <div class="comic-content">
+                        <span class="comic-category">Review</span>
+                        <h3 class="comic-title"><a href="blog-details.html?article=dark-knight-returns">Review: The Dark Knight Returns</a></h3>
+                        <p class="text-secondary mb-3">Does it hold up after all these years? We revisit the classic.
+                        </p>
+                        <a href="blog-details.html?article=dark-knight-returns" class="text-primary" style="font-weight: 700;">Read More &rarr;</a>
+                    </div>
+                </article>
+            </div>
+            <!-- Article 3 -->
+            <div class="col-md-4 mb-4">
+                <article class="comic-card">
+                    <div class="comic-image-wrapper">
+                        <a href="blog-details.html?article=comic-con-2026"><img
+                                src="https://images.unsplash.com/photo-1534809027769-b00d750a6bac?q=80&w=600&auto=format&fit=crop"
+                                class="comic-image" alt="Comic Con 2026 Recap"></a>
+                    </div>
+                    <div class="comic-content">
+                        <span class="comic-category">Events</span>
+                        <h3 class="comic-title"><a href="blog-details.html?article=comic-con-2026">Comic Con 2026 Recap</a></h3>
+                        <p class="text-secondary mb-3">The cosplay, the panels, and the exclusive reveals.</p>
+                        <a href="blog-details.html?article=comic-con-2026" class="text-primary" style="font-weight: 700;">Read More &rarr;</a>
+                    </div>
+                </article>
+            </div>
+            <!-- Article 4 -->
+            <div class="col-md-4 mb-4">
+                <article class="comic-card">
+                    <div class="comic-image-wrapper">
+                        <a href="blog-details.html?article=investing-guide"><img
+                                src="https://images.unsplash.com/photo-1620336655055-088d06e36bf0?q=80&w=600&auto=format&fit=crop"
+                                class="comic-image" alt="Investing in Comics"></a>
+                    </div>
+                    <div class="comic-content">
+                        <span class="comic-category">Guide</span>
+                        <h3 class="comic-title"><a href="blog-details.html?article=investing-guide">A Beginner's Guide</a></h3>
+                        <p class="text-secondary mb-3">Learn which issues are worth collecting and how to preserve your investment.</p>
+                        <a href="blog-details.html?article=investing-guide" class="text-primary" style="font-weight: 700;">Read More &rarr;</a>
+                    </div>
+                </article>
+            </div>
+            <!-- Article 5 -->
+            <div class="col-md-4 mb-4">
+                <article class="comic-card">
+                    <div class="comic-image-wrapper">
+                        <a href="blog-details.html?article=indie-comics"><img
+                                src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=600&auto=format&fit=crop"
+                                class="comic-image" alt="Indie Comics Spotlight"></a>
+                    </div>
+                    <div class="comic-content">
+                        <span class="comic-category">Spotlight</span>
+                        <h3 class="comic-title"><a href="blog-details.html?article=indie-comics">Indie Comics You Should Be Reading</a></h3>
+                        <p class="text-secondary mb-3">Discover hidden gems from independent creators that deserve your attention.</p>
+                        <a href="blog-details.html?article=indie-comics" class="text-primary" style="font-weight: 700;">Read More &rarr;</a>
+                    </div>
+                </article>
+            </div>
+            <!-- Article 6 -->
+            <div class="col-md-4 mb-4">
+                <article class="comic-card">
+                    <div class="comic-image-wrapper">
+                        <a href="blog-details.html?article=comic-covers"><img
+                                src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?q=80&w=600&auto=format&fit=crop"
+                                class="comic-image" alt="Comic Book Art"></a>
+                    </div>
+                    <div class="comic-content">
+                        <span class="comic-category">Art</span>
+                        <h3 class="comic-title"><a href="blog-details.html?article=comic-covers">The Art of Comic Book Covers</a></h3>
+                        <p class="text-secondary mb-3">Exploring iconic cover art and the artists who created them throughout history.</p>
+                        <a href="blog-details.html?article=comic-covers" class="text-primary" style="font-weight: 700;">Read More &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-family: var(--font-heading); font-size: 2rem; font-weight: 700;">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                            <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
+                            <path d="M12 10C12 9.44772 12.4477 9 13 9H27C27.5523 9 28 9.44772 28 10V30C28 30.5523 27.5523 31 27 31H13C12.4477 31 12 30.5523 12 30V10Z" fill="white" opacity="0.9"/>
+                            <path d="M15 13H25M15 17H25M15 21H22" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="26" cy="23" r="2" fill="var(--color-primary)"/>
+                            <path d="M20 28L15 31V28H20Z" fill="var(--color-accent)"/>
+                        </svg>
+                        <span style="color: #000000; font-family: var(--font-heading); font-size: 2rem; font-weight: 700;">COMIC<span style="color: #000000;">VERSE</span></span>
+                    </div>
+                    <p style="color: var(--color-text-secondary); max-width: 300px;">
+                        Your ultimate destination for comics, graphic novels, and pop culture collectibles.
+                        We bring the multiverse to your doorstep.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">New Arrivals</a></li>
+                        <li><a href="shop.html">Best Sellers</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="shop.html">Pre-Orders</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html">Sitemap</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Join Our Newsletter</h4>
+                    <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-bottom: 1rem;">Get the
+                        latest updates on new releases.</p>
+                    <form action="#" style="display: flex; gap: 0.5rem;">
+                        <input type="email" placeholder="Email address" class="form-control"
+                            style="border-radius: var(--radius-sm);">
+                        <button type="submit" class="btn btn-primary" style="padding: 0.5rem 1rem;">&rarr;</button>
+                    </form>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--color-border); padding-top: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; color: var(--color-text-secondary); font-size: 0.875rem;">
+                <div>&copy; 2026 ComicVerse. All rights reserved.</div>
+                <div>Designed for ThemeForest.</div>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/cart.js"></script>
+</body>
+
+</html>

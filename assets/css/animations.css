@@ -1,0 +1,47 @@
+/* 
+ * Comic Book Store - Animations
+ * Version: 1.0.0
+ * GSAP targets and CSS transitions
+ */
+
+/* Fade Up Initial State for GSAP */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    visibility: hidden;
+    /* JavaScript will remove this or handle it */
+}
+
+/* Image Zoom (CSS only as requested as allowed) */
+.img-zoom-container {
+    overflow: hidden;
+}
+
+.img-zoom-container img {
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.img-zoom-container:hover img {
+    transform: scale(1.1);
+}
+
+/* Micro-interactions */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--color-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}

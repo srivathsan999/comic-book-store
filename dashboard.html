@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - ComicVerse</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <style>
+        /* Dashboard Side Menu Styles */
+        #dashboard-menu-toggle {
+            display: none;
+            z-index: 1001;
+            position: relative;
+        }
+
+        #dashboard-menu-overlay {
+            z-index: 999;
+        }
+
+        #dashboard-menu-overlay.active {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: all !important;
+        }
+
+        #dashboard-side-menu {
+            z-index: 1000;
+        }
+
+        #dashboard-side-menu.active {
+            left: 0 !important;
+        }
+
+        @media (max-width: 992px) {
+            #dashboard-menu-toggle {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .nav-container {
+                justify-content: space-between !important;
+            }
+
+            /* Hide desktop sidebar on mobile/tablet */
+            .col-lg-3.mb-4 {
+                display: none !important;
+            }
+
+            /* Make main content full width on mobile */
+            .col-lg-9 {
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+        }
+
+        @media (min-width: 993px) {
+            #dashboard-menu-overlay {
+                display: none !important;
+            }
+
+            #dashboard-side-menu {
+                display: none !important;
+            }
+
+            #dashboard-menu-toggle {
+                display: none !important;
+            }
+
+            .nav-container {
+                justify-content: center !important;
+            }
+
+            .nav-container > div:last-child {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container" style="justify-content: space-between;">
+            <button id="dashboard-menu-toggle" class="mobile-toggle" aria-label="Toggle Menu">
+                &#9776;
+            </button>
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                    <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
+                    <path d="M12 10C12 9.44772 12.4477 9 13 9H27C27.5523 9 28 9.44772 28 10V30C28 30.5523 27.5523 31 27 31H13C12.4477 31 12 30.5523 12 30V10Z" fill="white" opacity="0.9"/>
+                    <path d="M15 13H25M15 17H25M15 21H22" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="26" cy="23" r="2" fill="var(--color-primary)"/>
+                    <path d="M20 28L15 31V28H20Z" fill="var(--color-accent)"/>
+                </svg>
+                <span>COMIC<span>VERSE</span></span>
+            </a>
+            <div style="width: 40px;"></div> <!-- Spacer for centering -->
+        </div>
+    </nav>
+
+    <!-- Side Menu Overlay -->
+    <div id="dashboard-menu-overlay" style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 999; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease; pointer-events: none;"></div>
+
+    <!-- Side Menu -->
+    <aside id="dashboard-side-menu" style="position: fixed; top: 0; left: -320px; width: 320px; height: 100vh; background: var(--color-surface); z-index: 1000; transition: left 0.3s ease; box-shadow: var(--shadow-lg); overflow-y: auto; padding: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--color-border);">
+            <h3 style="margin: 0; font-size: 1.25rem;">Menu</h3>
+            <button id="close-dashboard-menu" class="btn-icon" style="font-size: 1.5rem; color: var(--color-text-primary);" aria-label="Close Menu">
+                &times;
+            </button>
+        </div>
+
+        <!-- User Profile -->
+        <div class="d-flex align-items-center mb-4 pb-4" style="border-bottom: 1px solid var(--color-border); gap: 1rem;">
+            <div style="width: 50px; height: 50px; background: #ddd; border-radius: 50%; overflow: hidden;">
+                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=200"
+                    style="width: 100%; height: 100%; object-fit: cover;" alt="Profile">
+            </div>
+            <div>
+                <div style="font-weight: 700;">Peter Parker</div>
+                <div style="font-size: 0.875rem; color: var(--color-text-secondary);">Premium Member</div>
+            </div>
+        </div>
+
+        <!-- Menu Items -->
+        <ul class="dashboard-menu" style="display: flex; flex-direction: column; gap: 0.5rem; list-style: none; padding: 0; margin: 0;">
+            <li><a href="#" class="btn btn-outline"
+                    style="width: 100%; justify-content: flex-start; border: none; background: var(--color-background);">Overview</a>
+            </li>
+            <li><a href="#" class="btn btn-primary" style="width: 100%; justify-content: flex-start;">Pull
+                    List</a></li>
+            <li><a href="#" class="btn btn-outline"
+                    style="width: 100%; justify-content: flex-start; border: none;">Order History</a></li>
+            <li><a href="#" class="btn btn-outline"
+                    style="width: 100%; justify-content: flex-start; border: none;">Wishlist</a></li>
+            <li><a href="#" class="btn btn-outline"
+                    style="width: 100%; justify-content: flex-start; border: none;">Settings</a></li>
+            <li><a href="index.html" class="btn btn-outline"
+                    style="width: 100%; justify-content: flex-start; border: none; color: var(--color-primary); margin-top: 1rem;">Sign
+                    Out</a></li>
+        </ul>
+    </aside>
+
+    <div class="container py-5">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <div class="col-lg-3 mb-4">
+                <div class="glass-panel" style="padding: 1.5rem; border-radius: var(--radius-md);">
+                    <div class="d-flex align-items-center mb-4 pb-4"
+                        style="border-bottom: 1px solid var(--color-border); gap: 1rem;">
+                        <div style="width: 50px; height: 50px; background: #ddd; border-radius: 50%; overflow: hidden;">
+                            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=200"
+                                style="width: 100%; height: 100%; object-fit: cover;" alt="Profile">
+                        </div>
+                        <div>
+                            <div style="font-weight: 700;">Peter Parker</div>
+                            <div style="font-size: 0.875rem; color: var(--color-text-secondary);">Premium Member</div>
+                        </div>
+                    </div>
+
+                    <ul class="dashboard-menu" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <li><a href="#" class="btn btn-outline"
+                                style="width: 100%; justify-content: flex-start; border: none; background: var(--color-background);">Overview</a>
+                        </li>
+                        <li><a href="#" class="btn btn-primary" style="width: 100%; justify-content: flex-start;">Pull
+                                List</a></li>
+                        <li><a href="#" class="btn btn-outline"
+                                style="width: 100%; justify-content: flex-start; border: none;">Order History</a></li>
+                        <li><a href="#" class="btn btn-outline"
+                                style="width: 100%; justify-content: flex-start; border: none;">Wishlist</a></li>
+                        <li><a href="#" class="btn btn-outline"
+                                style="width: 100%; justify-content: flex-start; border: none;">Settings</a></li>
+                        <li><a href="index.html" class="btn btn-outline"
+                                style="width: 100%; justify-content: flex-start; border: none; color: var(--color-primary); margin-top: 1rem;">Sign
+                                Out</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="col-lg-9 fade-up">
+                <header class="d-flex justify-content-between align-items-center mb-4">
+                    <h1>Pull List Manager</h1>
+                    <button class="btn btn-outline" style="font-size: 1rem;">+ Add New Series</button>
+                </header>
+
+                <!-- Stats Cards -->
+                <div class="row mb-4">
+                    <div class="col-md-4 mb-3">
+                        <div
+                            style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                            <div style="color: var(--color-text-secondary); font-size: 0.875rem;">Active Subscriptions
+                            </div>
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--color-primary);">12</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div
+                            style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                            <div style="color: var(--color-text-secondary); font-size: 0.875rem;">Next Pick-up</div>
+                            <div style="font-size: 2rem; font-weight: 700;">Nov 14</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div
+                            style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                            <div style="color: var(--color-text-secondary); font-size: 0.875rem;">Est. Monthly Cost
+                            </div>
+                            <div style="font-size: 2rem; font-weight: 700;">$48.50</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pull List Table -->
+                <div class="glass-panel"
+                    style="background: var(--color-surface); border-radius: var(--radius-md); overflow: hidden;">
+                    <div style="overflow-x: auto;">
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr
+                                    style="background: var(--color-background); border-bottom: 2px solid var(--color-border);">
+                                    <th style="padding: 1rem; text-align: left;">Series Title</th>
+                                    <th style="padding: 1rem; text-align: left;">Next Issue</th>
+                                    <th style="padding: 1rem; text-align: left;">Release Date</th>
+                                    <th style="padding: 1rem; text-align: right;">Price</th>
+                                    <th style="padding: 1rem; text-align: right;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="border-bottom: 1px solid var(--color-border);">
+                                    <td style="padding: 1rem;">
+                                        <div style="display: flex; align-items: center; gap: 1rem;">
+                                            <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?q=80&w=100"
+                                                style="width: 40px; height: 60px; object-fit: cover; border-radius: 4px;"
+                                                alt="Cover">
+                                            <div>
+                                                <div style="font-weight: 600;">The Amazing Spider-Man</div>
+                                                <div style="font-size: 0.8rem; color: var(--color-text-secondary);">
+                                                    Marvel Comics</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 1rem;">#301</td>
+                                    <td style="padding: 1rem;">Nov 12, 2026</td>
+                                    <td style="padding: 1rem; text-align: right;">$4.99</td>
+                                    <td style="padding: 1rem; text-align: right;">
+                                        <button class="btn btn-outline"
+                                            style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">Manage</button>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-border);">
+                                    <td style="padding: 1rem;">
+                                        <div style="display: flex; align-items: center; gap: 1rem;">
+                                            <img src="https://images.unsplash.com/photo-1560555819-219bd39d2e13?q=80&w=100"
+                                                style="width: 40px; height: 60px; object-fit: cover; border-radius: 4px;"
+                                                alt="Cover">
+                                            <div>
+                                                <div style="font-weight: 600;">Detective Comics</div>
+                                                <div style="font-size: 0.8rem; color: var(--color-text-secondary);">DC
+                                                    Comics</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 1rem;">#1085</td>
+                                    <td style="padding: 1rem;">Nov 14, 2026</td>
+                                    <td style="padding: 1rem; text-align: right;">$5.99</td>
+                                    <td style="padding: 1rem; text-align: right;">
+                                        <button class="btn btn-outline"
+                                            style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">Manage</button>
+                                    </td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--color-border);">
+                                    <td style="padding: 1rem;">
+                                        <div style="display: flex; align-items: center; gap: 1rem;">
+                                            <img src="https://images.unsplash.com/photo-1534809027769-b00d750a6bac?q=80&w=100"
+                                                style="width: 40px; height: 60px; object-fit: cover; border-radius: 4px;"
+                                                alt="Cover">
+                                            <div>
+                                                <div style="font-weight: 600;">Saga</div>
+                                                <div style="font-size: 0.8rem; color: var(--color-text-secondary);">
+                                                    Image Comics</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="padding: 1rem;">#70</td>
+                                    <td style="padding: 1rem;">Nov 28, 2026</td>
+                                    <td style="padding: 1rem; text-align: right;">$3.99</td>
+                                    <td style="padding: 1rem; text-align: right;">
+                                        <button class="btn btn-outline"
+                                            style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">Manage</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-4"
+                    style="background: rgba(37, 99, 235, 0.1); border-radius: var(--radius-sm); border-left: 4px solid var(--color-secondary);">
+                    <h4 style="color: var(--color-secondary); margin-bottom: 0.5rem;">Did You Know?</h4>
+                    <p style="margin: 0; font-size: 0.9rem;">You can specify varying cover preferences (e.g. "Cover A
+                        only" or "All Variants") in the settings tab for each series.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script>
+        // Dashboard Side Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('dashboard-menu-toggle');
+            const closeMenuBtn = document.getElementById('close-dashboard-menu');
+            const sideMenu = document.getElementById('dashboard-side-menu');
+            const overlay = document.getElementById('dashboard-menu-overlay');
+
+            function showMenu(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (sideMenu) {
+                    sideMenu.classList.add('active');
+                }
+                if (overlay) {
+                    overlay.classList.add('active');
+                }
+                document.body.style.overflow = 'hidden';
+            }
+
+            function hideMenu(e) {
+                if (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+                if (sideMenu) {
+                    sideMenu.classList.remove('active');
+                }
+                if (overlay) {
+                    overlay.classList.remove('active');
+                }
+                document.body.style.overflow = '';
+            }
+
+            if (menuToggle) {
+                menuToggle.addEventListener('click', showMenu);
+            }
+
+            if (closeMenuBtn) {
+                closeMenuBtn.addEventListener('click', hideMenu);
+            }
+
+            if (overlay) {
+                overlay.addEventListener('click', hideMenu);
+            }
+
+            // Close menu when clicking on menu links
+            const menuLinks = document.querySelectorAll('#dashboard-side-menu a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Don't close if it's a hash link
+                    if (link.getAttribute('href') !== '#') {
+                        hideMenu(e);
+                    }
+                });
+            });
+
+            // Close menu on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && sideMenu && sideMenu.classList.contains('active')) {
+                    hideMenu();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

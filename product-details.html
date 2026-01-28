@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazing Spider-Man #300 - ComicVerse</title>
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-grid.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                    <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
+                    <path d="M12 10C12 9.44772 12.4477 9 13 9H27C27.5523 9 28 9.44772 28 10V30C28 30.5523 27.5523 31 27 31H13C12.4477 31 12 30.5523 12 30V10Z" fill="white" opacity="0.9"/>
+                    <path d="M15 13H25M15 17H25M15 21H22" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="26" cy="23" r="2" fill="var(--color-primary)"/>
+                    <path d="M20 28L15 31V28H20Z" fill="var(--color-accent)"/>
+                </svg>
+                <span>COMIC<span>VERSE</span></span>
+            </a>
+
+            <div class="nav-links">
+                <div class="dropdown">
+                    <a href="index.html" class="nav-link">Home <span style="font-size: 0.8em;">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="dropdown-item">Home 1</a>
+                        <a href="home-2.html" class="dropdown-item">Home 2 (Variant)</a>
+                    </div>
+                </div>
+                <a href="shop.html" class="nav-link active">Shop</a>
+                <a href="categories.html" class="nav-link">Categories</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+            </div>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="btn-icon" aria-label="Toggle Dark Mode">
+                    <span id="theme-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </span>
+                </button>
+                <a href="cart.html" class="btn-icon" aria-label="Shopping Cart" style="position: relative;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span id="cart-count" style="position: absolute; top: -8px; right: -8px; background: var(--color-primary); color: white; border-radius: 50%; width: 20px; height: 20px; display: none; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;">0</span>
+                </a>
+                <a href="login.html" class="btn btn-outline" style="font-size: 1rem; padding: 0.5rem 1rem; text-decoration: none;">Login</a>
+                <a href="signup.html" class="btn btn-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">Sign Up</a>
+                <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Toggle Menu"
+                    style="display: none;">&#9776;</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Section -->
+    <section class="py-5" style="margin-top: 2rem;">
+        <div class="container">
+            <div class="row">
+                <!-- Image -->
+                <div class="col-md-6 mb-5 fade-up">
+                    <div class="img-zoom-container"
+                        style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--color-border);">
+                        <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?q=80&w=1000&auto=format&fit=crop"
+                            style="width: 100%; cursor: crosshair;" alt="Product Image">
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-3"><img
+                                src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?q=80&w=200"
+                                style="border-radius: var(--radius-sm); border: 2px solid var(--color-primary);"
+                                alt="Thumb"></div>
+                        <div class="col-3"><img
+                                src="https://images.unsplash.com/photo-1560555819-219bd39d2e13?q=80&w=200"
+                                style="border-radius: var(--radius-sm); opacity: 0.6;" alt="Thumb"></div>
+                    </div>
+                </div>
+
+                <!-- Details -->
+                <div class="col-md-6 fade-up">
+                    <span class="text-secondary" style="font-weight: 600; text-transform: uppercase;">Marvel
+                        Comics</span>
+                    <h1 style="margin-top: 0.5rem; font-size: 3rem;">The Amazing Spider-Man #300</h1>
+                    <div style="font-size: 2rem; color: var(--color-primary); font-weight: 700; margin-bottom: 2rem;">
+                        $49.99</div>
+
+                    <p style="margin-bottom: 2rem;">
+                        This creates the first full appearance of Venom (Eddie Brock). A must-have for any serious
+                        collector.
+                        Mint condition, bagged and boarded.
+                    </p>
+
+                    <div style="margin-bottom: 2rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Quantity</label>
+                        <div style="display: flex; gap: 1rem; align-items: center;">
+                            <input type="number" value="1" min="1" class="form-control" style="width: 80px;">
+                            <button class="btn btn-primary" style="flex-grow: 1;">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel" style="padding: 1.5rem; border-radius: var(--radius-sm);">
+                        <ul style="font-size: 0.875rem;">
+                            <li style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;">
+                                <span>Publisher:</span> <strong>Marvel</strong>
+                            </li>
+                            <li style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;">
+                                <span>Year:</span> <strong>1988</strong>
+                            </li>
+                            <li style="margin-bottom: 0.5rem; display: flex; justify-content: space-between;">
+                                <span>Condition:</span> <strong>Near Mint (9.4)</strong>
+                            </li>
+                            <li style="display: flex; justify-content: space-between;"><span>SKU:</span>
+                                <strong>ASM-300-88</strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related -->
+    <section class="py-5 bg-surface">
+        <div class="container">
+            <h2 class="mb-4">You May Also Like</h2>
+            <div class="row product-grid">
+                <div class="col-md-3 fade-up">
+                    <article class="comic-card">
+                        <div class="comic-image-wrapper"><img
+                                src="https://images.unsplash.com/photo-1596727147705-54a9d1160906?q=80&w=600"
+                                class="comic-image" alt="Rel"></div>
+                        <div class="comic-content">
+                            <h3 class="comic-title">Thor #5</h3>
+                            <div class="comic-price">$19.99</div>
+                        </div>
+                    </article>
+                </div>
+                <!-- More related placeholders could go here -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-family: var(--font-heading); font-size: 2rem; font-weight: 700;">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
+                            <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
+                            <path d="M12 10C12 9.44772 12.4477 9 13 9H27C27.5523 9 28 9.44772 28 10V30C28 30.5523 27.5523 31 27 31H13C12.4477 31 12 30.5523 12 30V10Z" fill="white" opacity="0.9"/>
+                            <path d="M15 13H25M15 17H25M15 21H22" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
+                            <circle cx="26" cy="23" r="2" fill="var(--color-primary)"/>
+                            <path d="M20 28L15 31V28H20Z" fill="var(--color-accent)"/>
+                        </svg>
+                        <span style="color: #000000; font-family: var(--font-heading); font-size: 2rem; font-weight: 700;">COMIC<span style="color: #000000;">VERSE</span></span>
+                    </div>
+                    <p style="color: var(--color-text-secondary); max-width: 300px;">
+                        Your ultimate destination for comics, graphic novels, and pop culture collectibles.
+                        We bring the multiverse to your doorstep.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Shop</h4>
+                    <ul class="footer-links">
+                        <li><a href="shop.html">New Arrivals</a></li>
+                        <li><a href="shop.html">Best Sellers</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="shop.html">Pre-Orders</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html">Sitemap</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-heading">Join Our Newsletter</h4>
+                    <p style="font-size: 0.875rem; color: var(--color-text-secondary); margin-bottom: 1rem;">Get the
+                        latest updates on new releases.</p>
+                    <form action="#" style="display: flex; gap: 0.5rem;">
+                        <input type="email" placeholder="Email address" class="form-control"
+                            style="border-radius: var(--radius-sm);">
+                        <button type="submit" class="btn btn-primary" style="padding: 0.5rem 1rem;">&rarr;</button>
+                    </form>
+                </div>
+            </div>
+            <div
+                style="border-top: 1px solid var(--color-border); padding-top: 2rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; color: var(--color-text-secondary); font-size: 0.875rem;">
+                <div>&copy; 2026 ComicVerse. All rights reserved.</div>
+                <div>Designed for ThemeForest.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/cart.js"></script>
+</body>
+
+</html>
