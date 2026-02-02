@@ -101,6 +101,10 @@ ul {
     color: var(--color-primary) !important;
 }
 
+.text-center {
+    text-align: center !important;
+}
+
 .text-secondary {
     color: var(--color-secondary) !important;
 }
@@ -536,7 +540,8 @@ ul {
 }
 
 /* Responsive adjustments */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
+
     /* Tablet and below */
     .mobile-toggle {
         display: block;

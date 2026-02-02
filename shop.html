@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="assets/css/animations.css">
     <style>
         /* Filter Side Menu for Mobile/Tablet */
-        @media (max-width: 992px) {
+        @media (max-width: 1024px) {
             #filters-sidebar {
                 position: fixed;
                 top: 0;
@@ -59,7 +59,7 @@
             }
         }
 
-        @media (min-width: 993px) {
+        @media (min-width: 1025px) {
             #filter-overlay {
                 display: none !important;
             }
@@ -71,12 +71,16 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 0.75rem;">
-                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
-                    <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
-                    <path d="M12 10C12 9.44772 12.4477 9 13 9H27C27.5523 9 28 9.44772 28 10V30C28 30.5523 27.5523 31 27 31H13C12.4477 31 12 30.5523 12 30V10Z" fill="white" opacity="0.9"/>
-                    <path d="M15 13H25M15 17H25M15 21H22" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
-                    <circle cx="26" cy="23" r="2" fill="var(--color-primary)"/>
-                    <path d="M20 28L15 31V28H20Z" fill="var(--color-accent)"/>
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    style="flex-shrink: 0;">
+                    <rect width="40" height="40" rx="8" fill="var(--color-primary)" />
+                    <path
+                        d="M12 10C12 9.44772 12.4477 9 13 9H27C27.5523 9 28 9.44772 28 10V30C28 30.5523 27.5523 31 27 31H13C12.4477 31 12 30.5523 12 30V10Z"
+                        fill="white" opacity="0.9" />
+                    <path d="M15 13H25M15 17H25M15 21H22" stroke="var(--color-primary)" stroke-width="1.5"
+                        stroke-linecap="round" />
+                    <circle cx="26" cy="23" r="2" fill="var(--color-primary)" />
+                    <path d="M20 28L15 31V28H20Z" fill="var(--color-accent)" />
                 </svg>
                 <span>COMIC<span>VERSE</span></span>
             </a>
@@ -112,9 +116,11 @@
                         <circle cx="20" cy="21" r="1"></circle>
                         <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
                     </svg>
-                    <span id="cart-count" style="position: absolute; top: -8px; right: -8px; background: var(--color-primary); color: white; border-radius: 50%; width: 20px; height: 20px; display: none; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;">0</span>
+                    <span id="cart-count"
+                        style="position: absolute; top: -8px; right: -8px; background: var(--color-primary); color: white; border-radius: 50%; width: 20px; height: 20px; display: none; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700;">0</span>
                 </a>
-                <a href="login.html" class="btn btn-outline" style="font-size: 1rem; padding: 0.5rem 1rem; text-decoration: none;">Login</a>
+                <a href="login.html" class="btn btn-outline"
+                    style="font-size: 1rem; padding: 0.5rem 1rem; text-decoration: none;">Login</a>
                 <a href="signup.html" class="btn btn-primary" style="font-size: 1rem; padding: 0.5rem 1rem;">Sign Up</a>
                 <button id="mobile-menu-btn" class="mobile-toggle" aria-label="Toggle Menu">&#9776;</button>
             </div>
@@ -122,16 +128,21 @@
     </nav>
 
     <!-- Filter Overlay for Mobile -->
-    <div id="filter-overlay" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 999; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;"></div>
+    <div id="filter-overlay"
+        style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); z-index: 999; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;">
+    </div>
 
     <div class="container py-5" style="padding-top: 3rem; padding-bottom: 3rem;">
         <div class="row">
             <!-- Sidebar -->
             <aside id="filters-sidebar" class="col-lg-3 mb-4">
                 <div class="glass-panel" style="padding: 1.5rem; border-radius: var(--radius-md);">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
                         <h3 style="margin: 0;">Filters</h3>
-                        <button id="close-filters-btn" class="btn-icon" style="display: none; font-size: 1.5rem; color: var(--color-text-primary);" aria-label="Close Filters">
+                        <button id="close-filters-btn" class="btn-icon"
+                            style="display: none; font-size: 1.5rem; color: var(--color-text-primary);"
+                            aria-label="Close Filters">
                             &times;
                         </button>
                     </div>
@@ -139,41 +150,64 @@
                     <div class="mb-4">
                         <h4 style="font-size: 1.1rem; margin-bottom: 1rem;">Categories</h4>
                         <ul style="color: var(--color-text-secondary); list-style: none; padding: 0;">
-                            <li style="margin-bottom: 0.5rem;"><label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" class="filter-category" value="Marvel"> Marvel</label></li>
-                            <li style="margin-bottom: 0.5rem;"><label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" class="filter-category" value="DC Comics"> DC Comics</label></li>
-                            <li style="margin-bottom: 0.5rem;"><label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" class="filter-category" value="Image Comics"> Image Comics</label></li>
-                            <li style="margin-bottom: 0.5rem;"><label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" class="filter-category" value="Manga"> Manga</label></li>
-                            <li style="margin-bottom: 0.5rem;"><label style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;"><input type="checkbox" class="filter-category" value="Graphic Novels"> Graphic Novels</label></li>
+                            <li style="margin-bottom: 0.5rem;"><label
+                                    style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;"><input
+                                        type="checkbox" class="filter-category" value="Marvel"> Marvel</label></li>
+                            <li style="margin-bottom: 0.5rem;"><label
+                                    style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;"><input
+                                        type="checkbox" class="filter-category" value="DC Comics"> DC Comics</label>
+                            </li>
+                            <li style="margin-bottom: 0.5rem;"><label
+                                    style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;"><input
+                                        type="checkbox" class="filter-category" value="Image Comics"> Image
+                                    Comics</label></li>
+                            <li style="margin-bottom: 0.5rem;"><label
+                                    style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;"><input
+                                        type="checkbox" class="filter-category" value="Manga"> Manga</label></li>
+                            <li style="margin-bottom: 0.5rem;"><label
+                                    style="cursor: pointer; display: flex; align-items: center; gap: 0.5rem;"><input
+                                        type="checkbox" class="filter-category" value="Graphic Novels"> Graphic
+                                    Novels</label></li>
                         </ul>
                     </div>
 
                     <div class="mb-4">
                         <h4 style="font-size: 1.1rem; margin-bottom: 1rem;">Price Range</h4>
-                        <input type="range" id="price-range" min="0" max="100" value="100" class="form-control" style="padding: 0;" oninput="updatePriceDisplay(this.value)">
-                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-top: 0.5rem;">
+                        <input type="range" id="price-range" min="0" max="100" value="100" class="form-control"
+                            style="padding: 0;" oninput="updatePriceDisplay(this.value)">
+                        <div
+                            style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-top: 0.5rem;">
                             <span>$0</span>
                             <span id="max-price-display">$100+</span>
                         </div>
                     </div>
 
-                    <button class="btn btn-primary" onclick="applyFilters()" style="width: 100%; font-size: 1rem; margin-bottom: 0.5rem;">Apply Filters</button>
-                    <button class="btn btn-outline" onclick="clearFilters()" style="width: 100%; font-size: 1rem;">Clear Filters</button>
+                    <button class="btn btn-primary" onclick="applyFilters()"
+                        style="width: 100%; font-size: 1rem; margin-bottom: 0.5rem;">Apply Filters</button>
+                    <button class="btn btn-outline" onclick="clearFilters()" style="width: 100%; font-size: 1rem;">Clear
+                        Filters</button>
                 </div>
             </aside>
 
             <!-- Product Grid -->
             <main class="col-lg-9">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
+                <div
+                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem;">
                     <div style="display: flex; align-items: center; gap: 1rem;">
-                        <button id="filter-toggle-btn" class="btn btn-outline" style="display: none; font-size: 1rem; padding: 0.5rem 1rem; align-items: center;">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
+                        <button id="filter-toggle-btn" class="btn btn-outline"
+                            style="display: none; font-size: 1rem; padding: 0.5rem 1rem; align-items: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
                                 <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
                             </svg>
                             Filters
                         </button>
                         <h1 style="margin: 0;">All Comics</h1>
                     </div>
-                    <select id="sort-select" class="form-control" style="width: auto; display: inline-block;" onchange="applyFilters()">
+                    <select id="sort-select" class="form-control" style="width: auto; display: inline-block;"
+                        onchange="applyFilters()">
                         <option value="newest">Newest Arrivals</option>
                         <option value="price-low">Price: Low to High</option>
                         <option value="price-high">Price: High to Low</option>
@@ -181,10 +215,12 @@
                     </select>
                 </div>
 
-                <div class="row product-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; width: 100%;">
+                <div class="row product-grid"
+                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; width: 100%;">
                     <!-- Repeated Cards -->
                     <!-- Card 1 -->
-                    <div class="mb-4 product-item" data-category="Marvel" data-price="25.00" data-popularity="5" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                    <div class="mb-4 product-item" data-category="Marvel" data-price="25.00" data-popularity="5"
+                        style="width: 100%; opacity: 1; visibility: visible; transform: none;">
                         <article class="comic-card">
                             <div class="comic-image-wrapper">
                                 <a href="product-details.html">
@@ -197,13 +233,16 @@
                                 <h3 class="comic-title"><a href="product-details.html">Avengers #1</a></h3>
                                 <div class="comic-price">$25.00</div>
                                 <div id="cart-controls-Avengers #1" style="margin-top: 1rem;">
-                                    <button class="btn btn-primary" onclick="addToCart('Avengers #1', 25.00, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                    <button class="btn btn-primary" onclick="addToCart('Avengers #1', 25.00, this)"
+                                        style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to
+                                        Cart</button>
                                 </div>
                             </div>
                         </article>
                     </div>
                     <!-- Card 2 -->
-                    <div class="mb-4 product-item" data-category="DC Comics" data-price="12.99" data-popularity="4" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                    <div class="mb-4 product-item" data-category="DC Comics" data-price="12.99" data-popularity="4"
+                        style="width: 100%; opacity: 1; visibility: visible; transform: none;">
                         <article class="comic-card">
                             <div class="comic-image-wrapper">
                                 <a href="product-details.html">
@@ -216,13 +255,16 @@
                                 <h3 class="comic-title"><a href="product-details.html">Batman #50</a></h3>
                                 <div class="comic-price">$12.99</div>
                                 <div id="cart-controls-Batman #50" style="margin-top: 1rem;">
-                                    <button class="btn btn-primary" onclick="addToCart('Batman #50', 12.99, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                    <button class="btn btn-primary" onclick="addToCart('Batman #50', 12.99, this)"
+                                        style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to
+                                        Cart</button>
                                 </div>
                             </div>
                         </article>
                     </div>
                     <!-- Card 3 -->
-                    <div class="mb-4 product-item" data-category="Graphic Novels" data-price="9.99" data-popularity="3" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                    <div class="mb-4 product-item" data-category="Graphic Novels" data-price="9.99" data-popularity="3"
+                        style="width: 100%; opacity: 1; visibility: visible; transform: none;">
                         <article class="comic-card">
                             <div class="comic-image-wrapper">
                                 <a href="product-details.html">
@@ -235,13 +277,16 @@
                                 <h3 class="comic-title"><a href="product-details.html">Saga Vol. 1</a></h3>
                                 <div class="comic-price">$9.99</div>
                                 <div id="cart-controls-Saga Vol. 1" style="margin-top: 1rem;">
-                                    <button class="btn btn-primary" onclick="addToCart('Saga Vol. 1', 9.99, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                    <button class="btn btn-primary" onclick="addToCart('Saga Vol. 1', 9.99, this)"
+                                        style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to
+                                        Cart</button>
                                 </div>
                             </div>
                         </article>
                     </div>
                     <!-- Card 4 -->
-                    <div class="mb-4 product-item" data-category="Marvel" data-price="19.99" data-popularity="5" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                    <div class="mb-4 product-item" data-category="Marvel" data-price="19.99" data-popularity="5"
+                        style="width: 100%; opacity: 1; visibility: visible; transform: none;">
                         <article class="comic-card">
                             <div class="comic-image-wrapper">
                                 <a href="product-details.html">
@@ -254,13 +299,16 @@
                                 <h3 class="comic-title"><a href="product-details.html">Spider-Man #300</a></h3>
                                 <div class="comic-price">$19.99</div>
                                 <div id="cart-controls-Spider-Man #300" style="margin-top: 1rem;">
-                                    <button class="btn btn-primary" onclick="addToCart('Spider-Man #300', 19.99, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                    <button class="btn btn-primary" onclick="addToCart('Spider-Man #300', 19.99, this)"
+                                        style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to
+                                        Cart</button>
                                 </div>
                             </div>
                         </article>
                     </div>
                     <!-- Card 5 -->
-                    <div class="mb-4 product-item" data-category="Marvel" data-price="15.50" data-popularity="4" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                    <div class="mb-4 product-item" data-category="Marvel" data-price="15.50" data-popularity="4"
+                        style="width: 100%; opacity: 1; visibility: visible; transform: none;">
                         <article class="comic-card">
                             <div class="comic-image-wrapper">
                                 <a href="product-details.html">
@@ -273,13 +321,16 @@
                                 <h3 class="comic-title"><a href="product-details.html">X-Men Gold #1</a></h3>
                                 <div class="comic-price">$15.50</div>
                                 <div id="cart-controls-X-Men Gold #1" style="margin-top: 1rem;">
-                                    <button class="btn btn-primary" onclick="addToCart('X-Men Gold #1', 15.50, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                    <button class="btn btn-primary" onclick="addToCart('X-Men Gold #1', 15.50, this)"
+                                        style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to
+                                        Cart</button>
                                 </div>
                             </div>
                         </article>
                     </div>
                     <!-- Card 6 -->
-                    <div class="mb-4 product-item" data-category="Graphic Novels" data-price="22.00" data-popularity="5" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                    <div class="mb-4 product-item" data-category="Graphic Novels" data-price="22.00" data-popularity="5"
+                        style="width: 100%; opacity: 1; visibility: visible; transform: none;">
                         <article class="comic-card">
                             <div class="comic-image-wrapper">
                                 <a href="product-details.html">
@@ -292,13 +343,16 @@
                                 <h3 class="comic-title"><a href="product-details.html">Watchmen</a></h3>
                                 <div class="comic-price">$22.00</div>
                                 <div id="cart-controls-Watchmen" style="margin-top: 1rem;">
-                                    <button class="btn btn-primary" onclick="addToCart('Watchmen', 22.00, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                    <button class="btn btn-primary" onclick="addToCart('Watchmen', 22.00, this)"
+                                        style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to
+                                        Cart</button>
                                 </div>
                             </div>
                         </article>
                     </div>
                     <!-- Card 7 -->
-                    <div class="mb-4 product-item" data-category="Image Comics" data-price="29.99" data-popularity="4" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                    <div class="mb-4 product-item" data-category="Image Comics" data-price="29.99" data-popularity="4"
+                        style="width: 100%; opacity: 1; visibility: visible; transform: none;">
                         <article class="comic-card">
                             <div class="comic-image-wrapper">
                                 <a href="product-details.html">
@@ -311,13 +365,17 @@
                                 <h3 class="comic-title"><a href="product-details.html">The Walking Dead #1</a></h3>
                                 <div class="comic-price">$29.99</div>
                                 <div id="cart-controls-The Walking Dead #1" style="margin-top: 1rem;">
-                                    <button class="btn btn-primary" onclick="addToCart('The Walking Dead #1', 29.99, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                    <button class="btn btn-primary"
+                                        onclick="addToCart('The Walking Dead #1', 29.99, this)"
+                                        style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to
+                                        Cart</button>
                                 </div>
                             </div>
                         </article>
                     </div>
                     <!-- Card 8 -->
-                    <div class="mb-4 product-item" data-category="DC Comics" data-price="45.00" data-popularity="5" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                    <div class="mb-4 product-item" data-category="DC Comics" data-price="45.00" data-popularity="5"
+                        style="width: 100%; opacity: 1; visibility: visible; transform: none;">
                         <article class="comic-card">
                             <div class="comic-image-wrapper">
                                 <a href="product-details.html">
@@ -330,13 +388,16 @@
                                 <h3 class="comic-title"><a href="product-details.html">Superman #1</a></h3>
                                 <div class="comic-price">$45.00</div>
                                 <div id="cart-controls-Superman #1" style="margin-top: 1rem;">
-                                    <button class="btn btn-primary" onclick="addToCart('Superman #1', 45.00, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                    <button class="btn btn-primary" onclick="addToCart('Superman #1', 45.00, this)"
+                                        style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to
+                                        Cart</button>
                                 </div>
                             </div>
                         </article>
                     </div>
                     <!-- Card 9 -->
-                    <div class="mb-4 product-item" data-category="Graphic Novels" data-price="18.99" data-popularity="3" style="width: 100%; opacity: 1; visibility: visible; transform: none;">
+                    <div class="mb-4 product-item" data-category="Graphic Novels" data-price="18.99" data-popularity="3"
+                        style="width: 100%; opacity: 1; visibility: visible; transform: none;">
                         <article class="comic-card">
                             <div class="comic-image-wrapper">
                                 <a href="product-details.html">
@@ -346,10 +407,14 @@
                             </div>
                             <div class="comic-content">
                                 <span class="comic-category">Dark Horse</span>
-                                <h3 class="comic-title"><a href="product-details.html">Hellboy: Seed of Destruction</a></h3>
+                                <h3 class="comic-title"><a href="product-details.html">Hellboy: Seed of Destruction</a>
+                                </h3>
                                 <div class="comic-price">$18.99</div>
                                 <div id="cart-controls-Hellboy: Seed of Destruction" style="margin-top: 1rem;">
-                                    <button class="btn btn-primary" onclick="addToCart('Hellboy: Seed of Destruction', 18.99, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
+                                    <button class="btn btn-primary"
+                                        onclick="addToCart('Hellboy: Seed of Destruction', 18.99, this)"
+                                        style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to
+                                        Cart</button>
                                 </div>
                             </div>
                         </article>
@@ -373,20 +438,69 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <div class="footer-logo" style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-family: var(--font-heading); font-size: 2rem; font-weight: 700;">
-                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0;">
-                            <rect width="40" height="40" rx="8" fill="var(--color-primary)"/>
-                            <path d="M12 10C12 9.44772 12.4477 9 13 9H27C27.5523 9 28 9.44772 28 10V30C28 30.5523 27.5523 31 27 31H13C12.4477 31 12 30.5523 12 30V10Z" fill="white" opacity="0.9"/>
-                            <path d="M15 13H25M15 17H25M15 21H22" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round"/>
-                            <circle cx="26" cy="23" r="2" fill="var(--color-primary)"/>
-                            <path d="M20 28L15 31V28H20Z" fill="var(--color-accent)"/>
+                    <div class="footer-logo"
+                        style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; font-family: var(--font-heading); font-size: 2rem; font-weight: 700;">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            style="flex-shrink: 0;">
+                            <rect width="40" height="40" rx="8" fill="var(--color-primary)" />
+                            <path
+                                d="M12 10C12 9.44772 12.4477 9 13 9H27C27.5523 9 28 9.44772 28 10V30C28 30.5523 27.5523 31 27 31H13C12.4477 31 12 30.5523 12 30V10Z"
+                                fill="white" opacity="0.9" />
+                            <path d="M15 13H25M15 17H25M15 21H22" stroke="var(--color-primary)" stroke-width="1.5"
+                                stroke-linecap="round" />
+                            <circle cx="26" cy="23" r="2" fill="var(--color-primary)" />
+                            <path d="M20 28L15 31V28H20Z" fill="var(--color-accent)" />
                         </svg>
-                        <span style="color: #000000; font-family: var(--font-heading); font-size: 2rem; font-weight: 700;">COMIC<span style="color: #000000;">VERSE</span></span>
+                        <span
+                            style="color: #000000; font-family: var(--font-heading); font-size: 2rem; font-weight: 700;">COMIC<span
+                                style="color: #000000;">VERSE</span></span>
                     </div>
                     <p style="color: var(--color-text-secondary); max-width: 300px;">
                         Your ultimate destination for comics, graphic novels, and pop culture collectibles.
                         We bring the multiverse to your doorstep.
                     </p>
+                    <div class="footer-social" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                            style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--color-surface); border: 2px solid var(--color-border); color: var(--color-text-primary); transition: all 0.3s ease; text-decoration: none;"
+                            onmouseover="this.style.background='var(--color-primary)'; this.style.borderColor='var(--color-primary)'; this.style.color='white';"
+                            onmouseout="this.style.background='var(--color-surface)'; this.style.borderColor='var(--color-border)'; this.style.color='var(--color-text-primary)';">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+                            style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--color-surface); border: 2px solid var(--color-border); color: var(--color-text-primary); transition: all 0.3s ease; text-decoration: none;"
+                            onmouseover="this.style.background='var(--color-primary)'; this.style.borderColor='var(--color-primary)'; this.style.color='white';"
+                            onmouseout="this.style.background='var(--color-surface)'; this.style.borderColor='var(--color-border)'; this.style.color='var(--color-text-primary)';">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                            style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--color-surface); border: 2px solid var(--color-border); color: var(--color-text-primary); transition: all 0.3s ease; text-decoration: none;"
+                            onmouseover="this.style.background='var(--color-primary)'; this.style.borderColor='var(--color-primary)'; this.style.color='white';"
+                            onmouseout="this.style.background='var(--color-surface)'; this.style.borderColor='var(--color-border)'; this.style.color='var(--color-text-primary)';">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                            </svg>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"
+                            style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--color-surface); border: 2px solid var(--color-border); color: var(--color-text-primary); transition: all 0.3s ease; text-decoration: none;"
+                            onmouseover="this.style.background='var(--color-primary)'; this.style.borderColor='var(--color-primary)'; this.style.color='white';"
+                            onmouseout="this.style.background='var(--color-surface)'; this.style.borderColor='var(--color-border)'; this.style.color='var(--color-text-primary)';">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="currentColor">
+                                <path
+                                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
                 <div>
                     <h4 class="footer-heading">Shop</h4>
@@ -434,13 +548,13 @@
         // Cart functionality
         function addToCart(productName, price, button) {
             const quantity = 1;
-            
+
             // Get existing cart from localStorage
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            
+
             // Check if product already exists in cart
             const existingItem = cart.find(item => item.name === productName);
-            
+
             if (existingItem) {
                 existingItem.quantity += quantity;
             } else {
@@ -450,25 +564,25 @@
                     quantity: quantity
                 });
             }
-            
+
             // Save to localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
-            
+
             // Update cart count in navbar
             updateCartCount();
-            
+
             // Show quantity controls
             showCartControls(productName, price);
         }
-        
+
         function showCartControls(productName, price) {
             const controlsDiv = document.getElementById('cart-controls-' + productName);
             if (!controlsDiv) return;
-            
+
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const item = cart.find(item => item.name === productName);
             const quantity = item ? item.quantity : 1;
-            
+
             controlsDiv.innerHTML = `
                 <div style="display: flex; align-items: center; gap: 0.5rem;">
                     <button onclick="updateCartQuantity('${productName}', ${price}, -1)" style="width: 36px; height: 36px; border: 1px solid var(--color-border); background: var(--color-background); border-radius: var(--radius-sm); cursor: pointer; font-size: 1.25rem; display: flex; align-items: center; justify-content: center;">-</button>
@@ -478,11 +592,11 @@
                 </div>
             `;
         }
-        
+
         function updateCartQuantity(productName, price, change) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             const item = cart.find(item => item.name === productName);
-            
+
             if (item) {
                 item.quantity += change;
                 if (item.quantity <= 0) {
@@ -496,10 +610,10 @@
                     quantity: change
                 });
             }
-            
+
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartCount();
-            
+
             const quantitySpan = document.getElementById('quantity-' + productName.replace(/\s+/g, '-'));
             if (quantitySpan && item) {
                 quantitySpan.textContent = item.quantity;
@@ -507,13 +621,13 @@
                 showCartControls(productName, price);
             }
         }
-        
+
         function removeFromCart(productName) {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             cart = cart.filter(item => item.name !== productName);
             localStorage.setItem('cart', JSON.stringify(cart));
             updateCartCount();
-            
+
             // Reset to "Add to Cart" button
             const controlsDiv = document.getElementById('cart-controls-' + productName);
             if (controlsDiv) {
@@ -522,14 +636,14 @@
                 if (priceElement) {
                     const priceText = priceElement.textContent.replace('$', '').trim();
                     const price = parseFloat(priceText);
-                    
+
                     controlsDiv.innerHTML = `
                         <button class="btn btn-primary" onclick="addToCart('${productName}', ${price}, this)" style="width: 100%; padding: 0.5rem 1rem; font-size: 0.875rem;">Add to Cart</button>
                     `;
                 }
             }
         }
-        
+
         function updateCartCount() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -539,7 +653,7 @@
                 cartBadge.style.display = totalItems > 0 ? 'flex' : 'none';
             }
         }
-        
+
         // Initialize cart controls on page load
         function initializeCartControls() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -554,7 +668,7 @@
                 { name: 'Superman #1', price: 45.00 },
                 { name: 'Hellboy: Seed of Destruction', price: 18.99 }
             ];
-            
+
             products.forEach(product => {
                 const item = cart.find(item => item.name === product.name);
                 if (item) {
@@ -562,9 +676,9 @@
                 }
             });
         }
-        
+
         // Update cart count on page load
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             updateCartCount();
             initializeCartControls();
             updatePriceDisplay(100);
@@ -612,7 +726,7 @@
 
             // Show/hide filter button based on screen size
             function updateFilterButtonVisibility() {
-                if (window.innerWidth <= 992) {
+                if (window.innerWidth <= 1024) {
                     if (filterToggleBtn) filterToggleBtn.style.display = 'flex';
                     if (closeFiltersBtn) closeFiltersBtn.style.display = 'block';
                 } else {
@@ -625,7 +739,7 @@
             updateFilterButtonVisibility();
             window.addEventListener('resize', updateFilterButtonVisibility);
         }
-        
+
         // Filter and Sort functionality
         function updatePriceDisplay(value) {
             const display = document.getElementById('max-price-display');
@@ -637,43 +751,43 @@
                 }
             }
         }
-        
+
         function getSelectedCategories() {
             const checkboxes = document.querySelectorAll('.filter-category:checked');
             return Array.from(checkboxes).map(cb => cb.value);
         }
-        
+
         function getMaxPrice() {
             const slider = document.getElementById('price-range');
             return slider ? parseFloat(slider.value) : 100;
         }
-        
+
         function getSortOption() {
             const select = document.getElementById('sort-select');
             return select ? select.value : 'newest';
         }
-        
+
         function applyFilters() {
             const selectedCategories = getSelectedCategories();
             const maxPrice = getMaxPrice();
             const sortOption = getSortOption();
             const productItems = document.querySelectorAll('.product-item');
             const productGrid = document.querySelector('.product-grid');
-            
+
             let visibleCount = 0;
             const itemsArray = Array.from(productItems);
-            
+
             // Filter products
             itemsArray.forEach(item => {
                 const category = item.getAttribute('data-category');
                 const price = parseFloat(item.getAttribute('data-price'));
-                
+
                 // Check category filter
                 const categoryMatch = selectedCategories.length === 0 || selectedCategories.includes(category);
-                
+
                 // Check price filter
                 const priceMatch = price <= maxPrice;
-                
+
                 // Show/hide based on filters
                 if (categoryMatch && priceMatch) {
                     item.style.display = 'block';
@@ -682,12 +796,12 @@
                     item.style.display = 'none';
                 }
             });
-            
+
             // Sort visible items
             const visibleItems = itemsArray.filter(item => item.style.display !== 'none');
-            
+
             visibleItems.sort((a, b) => {
-                switch(sortOption) {
+                switch (sortOption) {
                     case 'price-low':
                         return parseFloat(a.getAttribute('data-price')) - parseFloat(b.getAttribute('data-price'));
                     case 'price-high':
@@ -699,12 +813,12 @@
                         return 0; // Keep original order for newest
                 }
             });
-            
+
             // Reorder DOM elements
             visibleItems.forEach(item => {
                 productGrid.appendChild(item);
             });
-            
+
             // Show message if no results
             let noResultsMsg = document.getElementById('no-results-message');
             if (visibleCount === 0) {
@@ -732,26 +846,26 @@
                 document.body.style.overflow = '';
             }
         }
-        
+
         function clearFilters() {
             // Uncheck all category checkboxes
             document.querySelectorAll('.filter-category').forEach(cb => {
                 cb.checked = false;
             });
-            
+
             // Reset price range
             const priceSlider = document.getElementById('price-range');
             if (priceSlider) {
                 priceSlider.value = 100;
                 updatePriceDisplay(100);
             }
-            
+
             // Reset sort
             const sortSelect = document.getElementById('sort-select');
             if (sortSelect) {
                 sortSelect.value = 'newest';
             }
-            
+
             // Apply filters (which will show all items)
             applyFilters();
         }

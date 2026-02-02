@@ -10,34 +10,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Add Login and Sign Up to mobile menu
     function addActionsToMobileMenu() {
-        if (window.innerWidth <= 992 && navLinks && navActions) {
+        if (window.innerWidth <= 1024 && navLinks && navActions) {
             // Remove existing mobile actions if any
             const existingActions = navLinks.querySelector('.mobile-menu-actions');
             if (existingActions) {
                 existingActions.remove();
             }
 
-            // Clone Login and Sign Up buttons
-            const loginLink = navActions.querySelector('.nav-link');
-            const signUpBtn = navActions.querySelector('.btn');
-            
-            if (loginLink || signUpBtn) {
+            // Select Login and Sign Up buttons specifically
+            const buttons = navActions.querySelectorAll('.btn');
+            let loginBtn = null;
+            let signUpBtn = null;
+
+            buttons.forEach(btn => {
+                if (btn.innerText.toLowerCase().includes('login')) {
+                    loginBtn = btn;
+                } else if (btn.innerText.toLowerCase().includes('sign up')) {
+                    signUpBtn = btn;
+                }
+            });
+
+            if (loginBtn || signUpBtn) {
                 const actionsContainer = document.createElement('div');
                 actionsContainer.className = 'mobile-menu-actions';
                 actionsContainer.style.cssText = 'width: 100%; padding-top: 1rem; border-top: 1px solid var(--color-border); margin-top: 1rem;';
-                
-                if (loginLink) {
-                    const loginClone = loginLink.cloneNode(true);
-                    loginClone.style.cssText = 'display: block; width: 100%; padding: 1rem 0; border-bottom: 1px solid var(--color-border); text-align: left;';
+
+                if (loginBtn) {
+                    const loginClone = loginBtn.cloneNode(true);
+                    loginClone.style.cssText = 'display: block; width: 100%; padding: 0.875rem 1rem; margin-bottom: 0.75rem; text-align: center;';
                     actionsContainer.appendChild(loginClone);
                 }
-                
+
                 if (signUpBtn) {
                     const signUpClone = signUpBtn.cloneNode(true);
-                    signUpClone.style.cssText = 'display: block; width: 100%; padding: 1rem 0; margin-top: 0.5rem; text-align: center;';
+                    signUpClone.style.cssText = 'display: block; width: 100%; padding: 0.875rem 1rem; text-align: center;';
                     actionsContainer.appendChild(signUpClone);
                 }
-                
+
                 navLinks.appendChild(actionsContainer);
             }
         } else {
@@ -84,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (dropdownLink) {
             dropdownLink.addEventListener('click', (e) => {
                 // Check if we're on mobile/tablet (viewport width <= 992px)
-                if (window.innerWidth <= 992) {
+                if (window.innerWidth <= 1024) {
                     e.preventDefault();
                     dropdown.classList.toggle('active');
                 }
