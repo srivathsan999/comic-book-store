@@ -141,6 +141,12 @@ ul {
     /* Darker red */
 }
 
+.btn-primary:hover {
+    background-color: #B91C1C;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 0 #991B1B;
+}
+
 .btn-primary:active {
     transform: translateY(4px);
     box-shadow: none;
@@ -152,6 +158,12 @@ ul {
     border-color: var(--color-secondary);
 }
 
+.btn-secondary:hover {
+    background-color: #1D4ED8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 0 0 #1E40AF;
+}
+
 .btn-outline {
     background-color: transparent;
     border-color: var(--color-text-primary);
@@ -161,6 +173,25 @@ ul {
 .btn-outline:hover {
     background-color: var(--color-text-primary);
     color: var(--color-background);
+}
+
+.btn-subscribe {
+    background: white;
+    color: var(--color-primary);
+    padding: 1rem 2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-size: 1rem;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.btn-subscribe:hover {
+    background-color: #F8FAFC;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Header & Navbar */
@@ -427,6 +458,16 @@ ul {
     align-items: center;
 }
 
+/* Home2 page hero button centering */
+.hero .hero-content .btn {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+    max-width: 250px;
+    width: auto;
+}
+
 .hero-content {
     max-width: 600px;
     z-index: 2;
@@ -622,6 +663,141 @@ ul {
         justify-content: space-between;
         align-items: center;
     }
+
+    /* Creator of the Month buttons - stack vertically on mobile */
+    .glass-panel .col-lg-7 .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .glass-panel .col-lg-7 div[style*="display: flex"] {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Responsive adjustments for tablet and mobile */
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    /* Section headers responsive */
+    h2 {
+        font-size: 2rem !important;
+    }
+
+    /* New Arrivals grid */
+    .comic-card {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Pre-orders section */
+    .product-grid .col-md-3 {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Creator of the Month section */
+    .glass-panel {
+        padding: 2rem 1.5rem !important;
+    }
+
+    .glass-panel .row {
+        flex-direction: column;
+    }
+
+    .glass-panel .col-lg-5,
+    .glass-panel .col-lg-7 {
+        width: 100%;
+        padding-left: 0 !important;
+        margin-bottom: 1.5rem;
+    }
+
+    .glass-panel .col-lg-7 {
+        text-align: center;
+    }
+
+    /* Testimonials */
+    .row .col-md-4 {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Testimonials reviewer name alignment */
+    .row .col-md-4 div[style*="font-weight: 700"] {
+        text-align: left;
+        margin-top: 1rem;
+        position: relative;
+        padding-left: 1.5rem;
+        display: block;
+        width: 100%;
+        clear: both;
+    }
+
+    .row .col-md-4 div[style*="font-weight: 700"]::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1rem;
+        height: 1px;
+        background: var(--color-primary);
+    }
+
+    /* Ensure testimonial text doesn't affect alignment */
+    .row .col-md-4 p[style*="font-style: italic"] {
+        margin-bottom: 1rem;
+        min-height: 2.5rem;
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        line-height: 1.4;
+    }
+
+    /* Daily Bugle news section */
+    .row .col-md-4 {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Categories/Promo section */
+    .row.align-items-center {
+        flex-direction: column;
+    }
+
+    .row.align-items-center .col-lg-6 {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Form controls mobile */
+    .form-control {
+        font-size: 1rem;
+    }
+
+    /* Buttons mobile */
+    .btn {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+    }
+
+    /* Section spacing mobile */
+    section {
+        padding: 3rem 0 !important;
+    }
+
+    .py-5 {
+        padding: 3rem 0 !important;
+    }
 }
 
 @media (max-width: 768px) {
@@ -636,5 +812,93 @@ ul {
 
     .navbar .nav-actions {
         gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+
+    .hero {
+        padding: 4rem 0 !important;
+        min-height: 60vh;
+    }
+
+    /* Section headers */
+    h2 {
+        font-size: 1.75rem !important;
+    }
+
+    /* New Arrivals - single column */
+    .comic-card {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Glass panel padding */
+    .glass-panel {
+        padding: 1.5rem 1rem !important;
+    }
+
+    /* Buttons full width on mobile */
+    .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .btn:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Hero buttons */
+    .hero-content div[style*="display: flex"] {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-content .btn {
+        width: 100%;
+    }
+
+    /* Section headers with flex */
+    .section-header {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 1rem !important;
+    }
+
+    .section-header .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Newsletter forms */
+    form[style*="display: flex"] {
+        flex-direction: column !important;
+    }
+
+    form input,
+    form button {
+        width: 100%;
+    }
+
+    /* Home2 page subscribe button centering in mobile */
+    form[style*="display: flex"] .btn-subscribe {
+        display: flex;
+        margin: 0 auto;
+        justify-content: center;
+        text-align: center;
+        max-width: 200px;
+    }
+
+    /* Social links */
+    .footer-social {
+        justify-content: center;
+    }
+
+    /* Container padding */
+    .container {
+        padding: 0 1rem;
     }
 }
