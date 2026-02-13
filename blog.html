@@ -75,9 +75,21 @@
 
     <div class="container py-5">
         <h1 class="mb-5 text-center">Comic Culture Blog</h1>
-        <div class="row">
+        
+        <!-- Category Tabs -->
+        <div class="blog-tabs mb-5" style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; border-bottom: 2px solid var(--color-border); padding-bottom: 1rem;">
+            <button class="tab-btn active" data-category="all" style="padding: 0.75rem 1.5rem; background: var(--color-primary); color: white; border: none; border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; transition: all 0.3s ease;">All Posts</button>
+            <button class="tab-btn" data-category="news" style="padding: 0.75rem 1.5rem; background: transparent; color: var(--color-text-primary); border: 2px solid var(--color-border); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; transition: all 0.3s ease;">News</button>
+            <button class="tab-btn" data-category="review" style="padding: 0.75rem 1.5rem; background: transparent; color: var(--color-text-primary); border: 2px solid var(--color-border); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Reviews</button>
+            <button class="tab-btn" data-category="events" style="padding: 0.75rem 1.5rem; background: transparent; color: var(--color-text-primary); border: 2px solid var(--color-border); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Events</button>
+            <button class="tab-btn" data-category="guide" style="padding: 0.75rem 1.5rem; background: transparent; color: var(--color-text-primary); border: 2px solid var(--color-border); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Guides</button>
+            <button class="tab-btn" data-category="spotlight" style="padding: 0.75rem 1.5rem; background: transparent; color: var(--color-text-primary); border: 2px solid var(--color-border); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Spotlight</button>
+            <button class="tab-btn" data-category="art" style="padding: 0.75rem 1.5rem; background: transparent; color: var(--color-text-primary); border: 2px solid var(--color-border); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Art</button>
+        </div>
+        
+        <div class="row" id="blog-posts">
             <!-- Article 1 -->
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4" data-category="news">
                 <article class="comic-card">
                     <div class="comic-image-wrapper">
                         <a href="blog-details.html?article=top-10-releases"><img
@@ -95,7 +107,7 @@
                 </article>
             </div>
             <!-- Article 2 -->
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4" data-category="review">
                 <article class="comic-card">
                     <div class="comic-image-wrapper">
                         <a href="blog-details.html?article=dark-knight-returns"><img
@@ -114,7 +126,7 @@
                 </article>
             </div>
             <!-- Article 3 -->
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4" data-category="events">
                 <article class="comic-card">
                     <div class="comic-image-wrapper">
                         <a href="blog-details.html?article=comic-con-2026"><img
@@ -132,7 +144,7 @@
                 </article>
             </div>
             <!-- Article 4 -->
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4" data-category="guide">
                 <article class="comic-card">
                     <div class="comic-image-wrapper">
                         <a href="blog-details.html?article=investing-guide"><img
@@ -150,7 +162,7 @@
                 </article>
             </div>
             <!-- Article 5 -->
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4" data-category="spotlight">
                 <article class="comic-card">
                     <div class="comic-image-wrapper">
                         <a href="blog-details.html?article=indie-comics"><img
@@ -168,7 +180,7 @@
                 </article>
             </div>
             <!-- Article 6 -->
-            <div class="col-md-4 mb-4">
+            <div class="col-md-4 mb-4" data-category="art">
                 <article class="comic-card">
                     <div class="comic-image-wrapper">
                         <a href="blog-details.html?article=comic-covers"><img
@@ -294,6 +306,7 @@
     </footer>
     <script src="assets/js/theme-toggle.js"></script>
     <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
