@@ -152,8 +152,8 @@
                     style="width: 100%; justify-content: flex-start; border: none;">Wishlist</a></li>
             <li><a href="#" class="btn btn-outline"
                     style="width: 100%; justify-content: flex-start; border: none;">Settings</a></li>
-            <li><a href="index.html" class="btn btn-outline"
-                    style="width: 100%; justify-content: flex-start; border: none; color: var(--color-primary); margin-top: 1rem;">Sign
+            <li><a href="#" class="btn btn-outline"
+                    style="width: 100%; justify-content: flex-start; border: none; color: var(--color-primary); margin-top: 1rem;" onclick="handleSignout(event); return false;">Sign
                     Out</a></li>
         </ul>
     </aside>
@@ -187,8 +187,8 @@
                                 style="width: 100%; justify-content: flex-start; border: none;">Wishlist</a></li>
                         <li><a href="#" class="btn btn-outline"
                                 style="width: 100%; justify-content: flex-start; border: none;">Settings</a></li>
-                        <li><a href="index.html" class="btn btn-outline"
-                                style="width: 100%; justify-content: flex-start; border: none; color: var(--color-primary); margin-top: 1rem;">Sign
+                        <li><a href="#" class="btn btn-outline"
+                                style="width: 100%; justify-content: flex-start; border: none; color: var(--color-primary); margin-top: 1rem;" onclick="handleSignout(event); return false;">Sign
                                 Out</a></li>
                     </ul>
                 </div>
@@ -196,127 +196,192 @@
 
             <!-- Main Content Area -->
             <div class="col-lg-9 fade-up">
-                <header class="d-flex justify-content-between align-items-center mb-4">
-                    <h1>Pull List Manager</h1>
-                    <button class="btn btn-outline" style="font-size: 1rem;">+ Add New Series</button>
-                </header>
-
-                <!-- Stats Cards -->
-                <div class="row mb-4">
-                    <div class="col-md-4 mb-3">
-                        <div
-                            style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
-                            <div style="color: var(--color-text-secondary); font-size: 0.875rem;">Active Subscriptions
-                            </div>
-                            <div style="font-size: 2rem; font-weight: 700; color: var(--color-primary);">12</div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <div
-                            style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
-                            <div style="color: var(--color-text-secondary); font-size: 0.875rem;">Next Pick-up</div>
-                            <div style="font-size: 2rem; font-weight: 700;">Nov 14</div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <div
-                            style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
-                            <div style="color: var(--color-text-secondary); font-size: 0.875rem;">Est. Monthly Cost
-                            </div>
-                            <div style="font-size: 2rem; font-weight: 700;">$48.50</div>
-                        </div>
-                    </div>
+                <!-- Tab Navigation -->
+                <div class="dashboard-tabs mb-4" style="display: flex; gap: 0.5rem; border-bottom: 2px solid var(--color-border); padding-bottom: 1rem; overflow-x: auto;">
+                    <button class="tab-btn active" data-tab="overview" style="padding: 0.75rem 1.5rem; background: var(--color-primary); color: white; border: none; border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; transition: all 0.3s ease; white-space: nowrap;">Overview</button>
+                    <button class="tab-btn" data-tab="pull-list" style="padding: 0.75rem 1.5rem; background: transparent; color: var(--color-text-primary); border: 2px solid var(--color-border); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; transition: all 0.3s ease; white-space: nowrap;">Pull List</button>
+                    <button class="tab-btn" data-tab="order-history" style="padding: 0.75rem 1.5rem; background: transparent; color: var(--color-text-primary); border: 2px solid var(--color-border); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; transition: all 0.3s ease; white-space: nowrap;">Order History</button>
+                    <button class="tab-btn" data-tab="wishlist" style="padding: 0.75rem 1.5rem; background: transparent; color: var(--color-text-primary); border: 2px solid var(--color-border); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; transition: all 0.3s ease; white-space: nowrap;">Wishlist</button>
+                    <button class="tab-btn" data-tab="settings" style="padding: 0.75rem 1.5rem; background: transparent; color: var(--color-text-primary); border: 2px solid var(--color-border); border-radius: var(--radius-sm); font-weight: 600; cursor: pointer; transition: all 0.3s ease; white-space: nowrap;">Settings</button>
                 </div>
 
-                <!-- Pull List Table -->
-                <div class="glass-panel"
-                    style="background: var(--color-surface); border-radius: var(--radius-md); overflow: hidden;">
-                    <div style="overflow-x: auto;">
-                        <table style="width: 100%; border-collapse: collapse;">
-                            <thead>
-                                <tr
-                                    style="background: var(--color-background); border-bottom: 2px solid var(--color-border);">
-                                    <th style="padding: 1rem; text-align: left;">Series Title</th>
-                                    <th style="padding: 1rem; text-align: left;">Next Issue</th>
-                                    <th style="padding: 1rem; text-align: left;">Release Date</th>
-                                    <th style="padding: 1rem; text-align: right;">Price</th>
-                                    <th style="padding: 1rem; text-align: right;">Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="border-bottom: 1px solid var(--color-border);">
-                                    <td style="padding: 1rem;">
-                                        <div style="display: flex; align-items: center; gap: 1rem;">
-                                            <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?q=80&w=100"
-                                                style="width: 40px; height: 60px; object-fit: cover; border-radius: 4px;"
-                                                alt="Cover">
-                                            <div>
-                                                <div style="font-weight: 600;">The Amazing Spider-Man</div>
-                                                <div style="font-size: 0.8rem; color: var(--color-text-secondary);">
-                                                    Marvel Comics</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td style="padding: 1rem;">#301</td>
-                                    <td style="padding: 1rem;">Nov 12, 2026</td>
-                                    <td style="padding: 1rem; text-align: right;">$4.99</td>
-                                    <td style="padding: 1rem; text-align: right;">
-                                        <button class="btn btn-outline"
-                                            style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">Manage</button>
-                                    </td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid var(--color-border);">
-                                    <td style="padding: 1rem;">
-                                        <div style="display: flex; align-items: center; gap: 1rem;">
-                                            <img src="https://th.bing.com/th/id/R.7f9dc4084ddb426e261160a58958e475?rik=WPmSvV%2fB0LOjWg&riu=http%3a%2f%2fimg2.wikia.nocookie.net%2f__cb20060914131557%2fmarvel_dc%2fimages%2f9%2f9d%2fDetective_Comics_168.JPG&ehk=9pNc9ovgBcrafTOkPV09qmHFJ9TdiXaO%2f6O3uwTGKW4%3d&risl=&pid=ImgRaw&r=0"
-                                                style="width: 40px; height: 60px; object-fit: cover; border-radius: 4px;"
-                                                alt="Cover">
-                                            <div>
-                                                <div style="font-weight: 600;">Detective Comics</div>
-                                                <div style="font-size: 0.8rem; color: var(--color-text-secondary);">DC
-                                                    Comics</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td style="padding: 1rem;">#1085</td>
-                                    <td style="padding: 1rem;">Nov 14, 2026</td>
-                                    <td style="padding: 1rem; text-align: right;">$5.99</td>
-                                    <td style="padding: 1rem; text-align: right;">
-                                        <button class="btn btn-outline"
-                                            style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">Manage</button>
-                                    </td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid var(--color-border);">
-                                    <td style="padding: 1rem;">
-                                        <div style="display: flex; align-items: center; gap: 1rem;">
-                                            <img src="https://images.unsplash.com/photo-1534809027769-b00d750a6bac?q=80&w=100"
-                                                style="width: 40px; height: 60px; object-fit: cover; border-radius: 4px;"
-                                                alt="Cover">
-                                            <div>
-                                                <div style="font-weight: 600;">Saga</div>
-                                                <div style="font-size: 0.8rem; color: var(--color-text-secondary);">
-                                                    Image Comics</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td style="padding: 1rem;">#70</td>
-                                    <td style="padding: 1rem;">Nov 28, 2026</td>
-                                    <td style="padding: 1rem; text-align: right;">$3.99</td>
-                                    <td style="padding: 1rem; text-align: right;">
-                                        <button class="btn btn-outline"
-                                            style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">Manage</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                <!-- Tab Content -->
+                <div id="tab-content">
+                    <!-- Overview Tab -->
+                    <div class="tab-pane active" id="overview">
+                        <header class="d-flex justify-content-between align-items-center mb-4">
+                            <h1>Dashboard Overview</h1>
+                            <button class="btn btn-outline" style="font-size: 1rem;">+ Add New Series</button>
+                        </header>
 
-                <div class="mt-4 p-4"
-                    style="background: rgba(37, 99, 235, 0.1); border-radius: var(--radius-sm); border-left: 4px solid var(--color-secondary);">
-                    <h4 style="color: var(--color-secondary); margin-bottom: 0.5rem;">Did You Know?</h4>
-                    <p style="margin: 0; font-size: 0.9rem;">You can specify varying cover preferences (e.g. "Cover A
-                        only" or "All Variants") in the settings tab for each series.</p>
+                        <!-- Stats Cards -->
+                        <div class="row mb-4">
+                            <div class="col-md-4 mb-3">
+                                <div
+                                    style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                                    <div style="color: var(--color-text-secondary); font-size: 0.875rem;">Active Subscriptions
+                                    </div>
+                                    <div style="font-size: 2rem; font-weight: 700; color: var(--color-primary);">12</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div
+                                    style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                                    <div style="color: var(--color-text-secondary); font-size: 0.875rem;">Next Pick-up</div>
+                                    <div style="font-size: 2rem; font-weight: 700;">Nov 14</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div
+                                    style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border);">
+                                    <div style="color: var(--color-text-secondary); font-size: 0.875rem;">Est. Monthly Cost
+                                    </div>
+                                    <div style="font-size: 2rem; font-weight: 700;">$48.50</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 p-4"
+                            style="background: rgba(37, 99, 235, 0.1); border-radius: var(--radius-sm); border-left: 4px solid var(--color-secondary);">
+                            <h4 style="color: var(--color-secondary); margin-bottom: 0.5rem;">Welcome Back!</h4>
+                            <p style="margin: 0; font-size: 0.9rem;">You have 3 new releases ready for pickup this week. Check your Pull List for details.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pull List Tab -->
+                    <div class="tab-pane" id="pull-list" style="display: none;">
+                        <header class="d-flex justify-content-between align-items-center mb-4">
+                            <h1>Pull List Manager</h1>
+                            <button class="btn btn-outline" style="font-size: 1rem;">+ Add New Series</button>
+                        </header>
+
+                        <!-- Pull List Table -->
+                        <div class="glass-panel"
+                            style="background: var(--color-surface); border-radius: var(--radius-md); overflow: hidden;">
+                            <div style="overflow-x: auto;">
+                                <table style="width: 100%; border-collapse: collapse;">
+                                    <thead>
+                                        <tr
+                                            style="background: var(--color-background); border-bottom: 2px solid var(--color-border);">
+                                            <th style="padding: 1rem; text-align: left;">Series Title</th>
+                                            <th style="padding: 1rem; text-align: left;">Next Issue</th>
+                                            <th style="padding: 1rem; text-align: left;">Release Date</th>
+                                            <th style="padding: 1rem; text-align: right;">Price</th>
+                                            <th style="padding: 1rem; text-align: right;">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="border-bottom: 1px solid var(--color-border);">
+                                            <td style="padding: 1rem;">
+                                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                                    <img src="https://images.unsplash.com/photo-1608889476561-6242cfdbf622?q=80&w=100"
+                                                        style="width: 40px; height: 60px; object-fit: cover; border-radius: 4px;"
+                                                        alt="Cover">
+                                                    <div>
+                                                        <div style="font-weight: 600;">The Amazing Spider-Man</div>
+                                                        <div style="font-size: 0.8rem; color: var(--color-text-secondary);">
+                                                            Marvel Comics</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td style="padding: 1rem;">#301</td>
+                                            <td style="padding: 1rem;">Nov 12, 2026</td>
+                                            <td style="padding: 1rem; text-align: right;">$4.99</td>
+                                            <td style="padding: 1rem; text-align: right;">
+                                                <button class="btn btn-outline"
+                                                    style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">Manage</button>
+                                            </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid var(--color-border);">
+                                            <td style="padding: 1rem;">
+                                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                                    <img src="https://th.bing.com/th/id/R.7f9dc4084ddb426e261160a58958e475?rik=WPmSvV%2fB0LOjWg&riu=http%3a%2f%2fimg2.wikia.nocookie.net%2f__cb20060914131557%2fmarvel_dc%2fimages%2f9%2f9d%2fDetective_Comics_168.JPG&ehk=9pNc9ovgBcrafTOkPV09qmHFJ9TdiXaO%2f6O3uwTGKW4%3d&risl=&pid=ImgRaw&r=0"
+                                                        style="width: 40px; height: 60px; object-fit: cover; border-radius: 4px;"
+                                                        alt="Cover">
+                                                    <div>
+                                                        <div style="font-weight: 600;">Detective Comics</div>
+                                                        <div style="font-size: 0.8rem; color: var(--color-text-secondary);">DC
+                                                            Comics</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td style="padding: 1rem;">#1085</td>
+                                            <td style="padding: 1rem;">Nov 14, 2026</td>
+                                            <td style="padding: 1rem; text-align: right;">$5.99</td>
+                                            <td style="padding: 1rem; text-align: right;">
+                                                <button class="btn btn-outline"
+                                                    style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">Manage</button>
+                                            </td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid var(--color-border);">
+                                            <td style="padding: 1rem;">
+                                                <div style="display: flex; align-items: center; gap: 1rem;">
+                                                    <img src="https://images.unsplash.com/photo-1534809027769-b00d750a6bac?q=80&w=100"
+                                                        style="width: 40px; height: 60px; object-fit: cover; border-radius: 4px;"
+                                                        alt="Cover">
+                                                    <div>
+                                                        <div style="font-weight: 600;">Saga</div>
+                                                        <div style="font-size: 0.8rem; color: var(--color-text-secondary);">
+                                                            Image Comics</div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td style="padding: 1rem;">#70</td>
+                                            <td style="padding: 1rem;">Nov 28, 2026</td>
+                                            <td style="padding: 1rem; text-align: right;">$3.99</td>
+                                            <td style="padding: 1rem; text-align: right;">
+                                                <button class="btn btn-outline"
+                                                    style="padding: 0.25rem 0.5rem; font-size: 0.8rem;">Manage</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 p-4"
+                            style="background: rgba(37, 99, 235, 0.1); border-radius: var(--radius-sm); border-left: 4px solid var(--color-secondary);">
+                            <h4 style="color: var(--color-secondary); margin-bottom: 0.5rem;">Did You Know?</h4>
+                            <p style="margin: 0; font-size: 0.9rem;">You can specify varying cover preferences (e.g. "Cover A
+                                only" or "All Variants") in the settings tab for each series.</p>
+                        </div>
+                    </div>
+
+                    <!-- Order History Tab -->
+                    <div class="tab-pane" id="order-history" style="display: none;">
+                        <header class="mb-4">
+                            <h1>Order History</h1>
+                        </header>
+                        <div class="glass-panel" style="background: var(--color-surface); border-radius: var(--radius-md); padding: 2rem;">
+                            <div style="text-align: center; color: var(--color-text-secondary);">
+                                <p>No orders yet. Start building your pull list to see your order history here.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wishlist Tab -->
+                    <div class="tab-pane" id="wishlist" style="display: none;">
+                        <header class="mb-4">
+                            <h1>My Wishlist</h1>
+                        </header>
+                        <div class="glass-panel" style="background: var(--color-surface); border-radius: var(--radius-md); padding: 2rem;">
+                            <div style="text-align: center; color: var(--color-text-secondary);">
+                                <p>Your wishlist is empty. Browse our shop to add items you're interested in.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Settings Tab -->
+                    <div class="tab-pane" id="settings" style="display: none;">
+                        <header class="mb-4">
+                            <h1>Account Settings</h1>
+                        </header>
+                        <div class="glass-panel" style="background: var(--color-surface); border-radius: var(--radius-md); padding: 2rem;">
+                            <div style="text-align: center; color: var(--color-text-secondary);">
+                                <p>Settings panel coming soon. Manage your account preferences and notification settings here.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -329,6 +394,18 @@
     <script src="assets/js/main.js"></script>
     <script src="assets/js/cart.js"></script>
     <script>
+        // Global signout handler
+        function handleSignout(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Clear any session data (if applicable)
+            sessionStorage.clear();
+            localStorage.clear();
+            // Redirect to home page
+            window.location.href = 'index.html';
+        }
+
         // Dashboard Side Menu Toggle
         document.addEventListener('DOMContentLoaded', function () {
             const menuToggle = document.getElementById('dashboard-menu-toggle');
@@ -374,10 +451,16 @@
                 overlay.addEventListener('click', hideMenu);
             }
 
-            // Close menu when clicking on menu links
+            // Close menu when clicking on menu links (except signout)
             const menuLinks = document.querySelectorAll('#dashboard-side-menu a');
             menuLinks.forEach(link => {
                 link.addEventListener('click', function (e) {
+                    // Handle signout specifically
+                    if (link.innerText.toLowerCase().includes('sign out')) {
+                        handleSignout(e);
+                        return;
+                    }
+                    
                     // Don't close if it's a hash link
                     if (link.getAttribute('href') !== '#') {
                         hideMenu(e);
@@ -390,6 +473,75 @@
                 if (e.key === 'Escape' && sideMenu && sideMenu.classList.contains('active')) {
                     hideMenu();
                 }
+            });
+
+            // Dashboard Tab Functionality
+            const tabButtons = document.querySelectorAll('.dashboard-tabs .tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            function switchTab(targetTab) {
+                // Update button states
+                tabButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.style.background = 'transparent';
+                    btn.style.color = 'var(--color-text-primary)';
+                    btn.style.border = '2px solid var(--color-border)';
+                });
+
+                // Update content visibility
+                tabPanes.forEach(pane => {
+                    pane.classList.remove('active');
+                    pane.style.display = 'none';
+                });
+
+                // Activate selected tab
+                const activeBtn = document.querySelector(`[data-tab="${targetTab}"]`);
+                const activePane = document.getElementById(targetTab);
+
+                if (activeBtn) {
+                    activeBtn.classList.add('active');
+                    activeBtn.style.background = 'var(--color-primary)';
+                    activeBtn.style.color = 'white';
+                    activeBtn.style.border = 'none';
+                }
+
+                if (activePane) {
+                    activePane.classList.add('active');
+                    activePane.style.display = 'block';
+                }
+            }
+
+            // Add click event listeners to tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    switchTab(targetTab);
+                });
+            });
+
+            // Also handle sidebar navigation clicks
+            const sidebarLinks = document.querySelectorAll('.dashboard-menu a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const linkText = link.innerText.toLowerCase();
+                    let targetTab = 'overview'; // default
+
+                    if (linkText.includes('pull')) {
+                        targetTab = 'pull-list';
+                    } else if (linkText.includes('order')) {
+                        targetTab = 'order-history';
+                    } else if (linkText.includes('wishlist')) {
+                        targetTab = 'wishlist';
+                    } else if (linkText.includes('settings')) {
+                        targetTab = 'settings';
+                    }
+
+                    // Only switch tabs if it's not signout
+                    if (!linkText.includes('sign out')) {
+                        e.preventDefault();
+                        switchTab(targetTab);
+                    }
+                });
             });
         });
     </script>
