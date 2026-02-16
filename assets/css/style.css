@@ -675,6 +675,46 @@ ul {
         gap: 0.5rem;
     }
 
+    /* Blog tabs responsive */
+    .blog-tabs {
+        gap: 0.5rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+    
+    .blog-tabs .tab-btn {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.875rem !important;
+        flex: 1;
+        min-width: 0;
+        text-align: center;
+    }
+    
+    .blog-tabs .tab-btn:not(.active):hover {
+        background: var(--color-background) !important;
+        border-color: var(--color-primary) !important;
+        color: var(--color-primary) !important;
+    }
+
+    /* Dashboard tabs responsive */
+    .dashboard-tabs {
+        gap: 0.25rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+    
+    .dashboard-tabs .tab-btn {
+        padding: 0.5rem 1rem !important;
+        font-size: 0.875rem !important;
+        flex: 1;
+        min-width: 0;
+        text-align: center;
+    }
+    
+    .dashboard-tabs .tab-btn:not(.active):hover {
+        background: var(--color-background) !important;
+        border-color: var(--color-primary) !important;
+        color: var(--color-primary) !important;
+    }
+
     /* Responsive adjustments for tablet and mobile */
     .hero h1 {
         font-size: 3rem;
@@ -760,6 +800,7 @@ ul {
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp: 2;
+        line-clamp: 2;
         -webkit-box-orient: vertical;
         line-height: 1.4;
     }
