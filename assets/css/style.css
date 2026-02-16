@@ -212,6 +212,34 @@ ul {
     justify-content: space-between;
 }
 
+/* Dashboard Tabs Mobile Stack - Final Fix */
+@media (max-width: 768px) {
+
+    html,
+    body {
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    .dashboard-tabs {
+        flex-direction: column !important;
+        overflow-x: visible !important;
+        height: auto !important;
+        display: flex !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .dashboard-tabs .tab-btn {
+        width: 100% !important;
+        display: block !important;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        white-space: normal !important;
+        max-width: 100% !important;
+    }
+}
+
 .logo {
     font-family: var(--font-heading);
     font-size: 2rem;
@@ -680,7 +708,7 @@ ul {
         gap: 0.5rem !important;
         padding-bottom: 0.75rem !important;
     }
-    
+
     .blog-tabs .tab-btn {
         padding: 0.5rem 1rem !important;
         font-size: 0.875rem !important;
@@ -688,7 +716,7 @@ ul {
         min-width: 0;
         text-align: center;
     }
-    
+
     .blog-tabs .tab-btn:not(.active):hover {
         background: var(--color-background) !important;
         border-color: var(--color-primary) !important;
@@ -700,7 +728,7 @@ ul {
         gap: 0.25rem !important;
         padding-bottom: 0.75rem !important;
     }
-    
+
     .dashboard-tabs .tab-btn {
         padding: 0.5rem 1rem !important;
         font-size: 0.875rem !important;
@@ -708,7 +736,7 @@ ul {
         min-width: 0;
         text-align: center;
     }
-    
+
     .dashboard-tabs .tab-btn:not(.active):hover {
         background: var(--color-background) !important;
         border-color: var(--color-primary) !important;
