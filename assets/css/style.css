@@ -322,7 +322,8 @@ ul {
     transition: background-color 0.2s;
 }
 
-.dropdown-item:hover {
+.dropdown-item:hover,
+.dropdown-item.active {
     background-color: var(--color-background);
     color: var(--color-primary);
 }
