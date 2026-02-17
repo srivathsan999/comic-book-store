@@ -572,6 +572,27 @@ ul {
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
+/* Checkbox Styles */
+.form-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+.form-check-input {
+    margin-top: 0.25rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+}
+
 /* Auth Pages */
 .auth-wrapper {
     min-height: calc(100vh - var(--header-height));
