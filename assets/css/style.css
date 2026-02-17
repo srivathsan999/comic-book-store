@@ -705,11 +705,14 @@ ul {
 
     /* Blog tabs responsive */
     .blog-tabs {
+        flex-direction: column !important;
         gap: 0.5rem !important;
         padding-bottom: 0.75rem !important;
     }
 
     .blog-tabs .tab-btn {
+        width: 100% !important;
+        display: block !important;
         padding: 0.5rem 1rem !important;
         font-size: 0.875rem !important;
         flex: 1;
